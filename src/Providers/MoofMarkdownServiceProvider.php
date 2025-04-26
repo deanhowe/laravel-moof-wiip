@@ -3,8 +3,8 @@
 namespace DeanHowe\Laravel\Moof\Providers;
 
 use Illuminate\Foundation\Console\AboutCommand;
-use Illuminate\Support\Str;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Str;
 use Spatie\LaravelMarkdown\MarkdownRenderer;
 
 class MoofMarkdownServiceProvider extends ServiceProvider

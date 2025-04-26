@@ -1,11 +1,13 @@
-<?php namespace DeanHowe\Laravel\Moof\MultiDomain\Console;
+<?php
+
+namespace DeanHowe\Laravel\Moof\MultiDomain\Console;
 
 use Config;
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Arr;
 
-class RemoveDomainCommand extends GeneratorCommand {
-
+class RemoveDomainCommand extends GeneratorCommand
+{
     use DomainCommandTrait;
 
     /**
@@ -17,17 +19,20 @@ class RemoveDomainCommand extends GeneratorCommand {
                             {domain : The name of the domain to remove from the framework} 
                             {--force : Force the deletion of domain storage dirs also if they exist and they are possibly full}';
 
-    protected $description = "Removes a domain from the framework.";
+    protected $description = 'Removes a domain from the framework.';
+
     protected string $domain;
 
     /*
      * Se il file di ambiente esiste già viene semplicemente sovrascirtto con i nuovi valori passati dal comando (update)
      */
-    public function handle() {
+    public function handle()
+    {
 
-        if(! $this->isInstalled()) {
+        if (!$this->isInstalled()) {
 
-            $this->line("<info>Please install</info> <comment>Moof Moof</comment> <info>`php artisan x-moof:install`</info>");
+            $this->line('<info>Please install</info> <comment>Moof Moof</comment> <info>`php artisan x-moof:install`</info>');
+
             return;
         }
 
@@ -55,7 +60,7 @@ class RemoveDomainCommand extends GeneratorCommand {
 
         $this->updateConfigFile('remove');
 
-        $this->line("<info>Removed</info> <comment>" . $this->domain . "</comment> <info>from the application.</info>");
+        $this->line('<info>Removed</info> <comment>' . $this->domain . '</comment> <info>from the application.</info>');
     }
 
     protected function deleteDomainEnvFile()
@@ -66,40 +71,46 @@ class RemoveDomainCommand extends GeneratorCommand {
         }
     }
 
-    public function deleteDomainLanguageDirs() {
+    public function deleteDomainLanguageDirs()
+    {
         $path = $this->getDomainLanguagePath($this->domain);
         if ($this->files->exists($path)) {
             $this->files->deleteDirectory($path);
         }
     }
 
-    public function deleteDomainMarkdownDirs() {
+    public function deleteDomainMarkdownDirs()
+    {
         $path = $this->getDomainMarkdownPath($this->domain);
         if ($this->files->exists($path)) {
             $this->files->deleteDirectory($path);
         }
     }
 
-    public function deleteDomainStorageDirs() {
+    public function deleteDomainStorageDirs()
+    {
         $path = $this->getDomainStoragePath($this->domain);
         if ($this->files->exists($path)) {
             $this->files->deleteDirectory($path);
         }
     }
 
-    public function deleteDomainThemeDirs() {
+    public function deleteDomainThemeDirs()
+    {
         $path = $this->getDomainThemePath($this->domain);
         if ($this->files->exists($path)) {
             $this->files->deleteDirectory($path);
         }
     }
 
-    protected function removeDomainToConfigFile($config) {
+    protected function removeDomainToConfigFile($config)
+    {
         $domains = Arr::get($config, 'domains', []);
         if (array_key_exists($this->domain, $domains)) {
             unset($domains[$this->domain]);
         }
         $config['domains'] = $domains;
+
         return $config;
     }
 

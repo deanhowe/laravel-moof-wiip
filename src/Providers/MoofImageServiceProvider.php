@@ -1,10 +1,12 @@
-<?php namespace DeanHowe\Laravel\Moof\Providers;
+<?php
+
+namespace DeanHowe\Laravel\Moof\Providers;
 
 use DeanHowe\Laravel\Moof\Console\Commands\MoofImageProcessCommand;
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\ServiceProvider;
 
-//use DeanHowe\Laravel\Moof\Livewire\SendInternalSystemMessageForm;
+// use DeanHowe\Laravel\Moof\Livewire\SendInternalSystemMessageForm;
 
 class MoofImageServiceProvider extends ServiceProvider
 {
@@ -22,7 +24,7 @@ class MoofImageServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 MoofImageProcessCommand::class,
-                //MoofMoofDeveloperCommand::class,
+                // MoofMoofDeveloperCommand::class,
             ]);
         }
 
@@ -40,22 +42,22 @@ class MoofImageServiceProvider extends ServiceProvider
 
     private function countProcessedDomainAssets(): string|int
     {
-//        $domainAssets = (new Filesystem)->allFiles(app()->exactProcessedDomainAssetsPath());
-//        return count($domainAssets);
+        //        $domainAssets = (new Filesystem)->allFiles(app()->exactProcessedDomainAssetsPath());
+        //        return count($domainAssets);
         return 0;
     }
 
     private function countRawDomainAssets(): string|int
     {
-//        $domainAssets = (new Filesystem)->allFiles(app()->exactRawDomainAssetsPath());
-//        return count($domainAssets);
+        //        $domainAssets = (new Filesystem)->allFiles(app()->exactRawDomainAssetsPath());
+        //        return count($domainAssets);
         return 0;
     }
 
     private function countPublishedDomainAssets(): string|int
     {
-//        $domainAssets = (new Filesystem)->files(app()->exactPublishedDomainAssetsPath());
-//        return count($domainAssets);
+        //        $domainAssets = (new Filesystem)->files(app()->exactPublishedDomainAssetsPath());
+        //        return count($domainAssets);
         return 0;
     }
 
@@ -66,6 +68,6 @@ class MoofImageServiceProvider extends ServiceProvider
         AboutCommand::add('MOOF 🐄 Images!', 'Assets Processed', $this->countProcessedDomainAssets());
         AboutCommand::add('MOOF 🐄 Images!', 'Assets Published', $this->countPublishedDomainAssets());
 
-        //$this->loadRoutesFrom(__DIR__ . '/../../routes/images.php');
+        // $this->loadRoutesFrom(__DIR__ . '/../../routes/images.php');
     }
 }

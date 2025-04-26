@@ -9,10 +9,8 @@ use Spatie\LaravelData\Data;
 
 class StripeMetaData extends Data
 {
-
-    /** @var \DeanHowe\Laravel\Moof\Data\HTML\Meta\StripeSubscriptionPackageMetaData[] */
+    /** @var StripeSubscriptionPackageMetaData[] */
     public array $packages;
-
 
     #[MapOutputName(KebabCaseMapper::class)]
     #[MapInputName(KebabCaseMapper::class)]
@@ -21,7 +19,9 @@ class StripeMetaData extends Data
     #[MapOutputName(KebabCaseMapper::class)]
     #[MapInputName(KebabCaseMapper::class)]
     public string $packagesCallToAction;
+
     public function __construct(
-      //
-    ) {}
+        //
+    ) {
+    }
 }

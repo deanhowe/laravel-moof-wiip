@@ -1,11 +1,12 @@
-<?php namespace DeanHowe\Laravel\Moof\MultiDomain\Console;
+<?php
+
+namespace DeanHowe\Laravel\Moof\MultiDomain\Console;
 
 use Illuminate\Console\GeneratorCommand;
 use Illuminate\Support\Facades\Config;
 
 class UpdateEnvDomainCommand extends GeneratorCommand
 {
-
     use DomainCommandTrait;
 
     /**
@@ -17,8 +18,10 @@ class UpdateEnvDomainCommand extends GeneratorCommand
                             {domain? : The name of the domain to which update the env (if empty all the env domains will be updated)}
                             {--domain_values= : The optional values for the domain variables to be stored in the env file (json object)}';
 
-    protected $description = "Update one or all of the environment files for the domains from a json";
+    protected $description = 'Update one or all of the environment files for the domains from a json';
+
     protected $domain;
+
     protected $envFiles = [];
 
     /*
@@ -26,9 +29,10 @@ class UpdateEnvDomainCommand extends GeneratorCommand
      */
     public function handle()
     {
-        if(! $this->isInstalled()) {
+        if (!$this->isInstalled()) {
 
-            $this->line("<info>Please install</info> <comment>Moof Moof</comment> <info>`php artisan x-moof:install`</info>");
+            $this->line('<info>Please install</info> <comment>Moof Moof</comment> <info>`php artisan x-moof:install`</info>');
+
             return;
         }
 
@@ -41,9 +45,8 @@ class UpdateEnvDomainCommand extends GeneratorCommand
          */
         $this->updateDomainEnvFiles();
 
-        $this->line("<info>Updated env domain files</info>");
+        $this->line('<info>Updated env domain files</info>');
     }
-
 
     protected function getDomainEnvFiles()
     {
@@ -59,7 +62,6 @@ class UpdateEnvDomainCommand extends GeneratorCommand
         ];
         $domainList = Config::get('domain.domains', []);
 
-
         foreach ($domainList as $domain) {
             $domainFile = $this->getDomainEnvFilePath($domain);
             if ($this->files->exists($domainFile)) {
@@ -71,17 +73,15 @@ class UpdateEnvDomainCommand extends GeneratorCommand
 
     }
 
-
     protected function updateDomainEnvFiles()
     {
-        $domainValues = json_decode($this->option("domain_values"), true);
-//        $this->line("<info>".var_dump($this->option("domain_values"))."</info>");
-//        $this->line("<info>".var_dump($domainValues)."</info>");
+        $domainValues = json_decode($this->option('domain_values'), true);
+        //        $this->line("<info>".var_dump($this->option("domain_values"))."</info>");
+        //        $this->line("<info>".var_dump($domainValues)."</info>");
 
         if (!is_array($domainValues)) {
-            $domainValues = array();
+            $domainValues = [];
         }
-
 
         foreach ($this->envFiles as $envFilePath) {
             $envArray = $this->getVarsArray($envFilePath);
@@ -100,8 +100,5 @@ class UpdateEnvDomainCommand extends GeneratorCommand
      */
     protected function getStub()
     {
-
     }
-
-
 }

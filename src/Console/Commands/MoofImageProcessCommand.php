@@ -7,9 +7,7 @@ namespace DeanHowe\Laravel\Moof\Console\Commands;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Console\PromptsForMissingInput;
 use Illuminate\Filesystem\Filesystem;
-
 use function Laravel\Prompts\progress;
-
 use Spatie\Image\Manipulations;
 
 final class MoofImageProcessCommand extends Command implements PromptsForMissingInput
@@ -31,10 +29,10 @@ final class MoofImageProcessCommand extends Command implements PromptsForMissing
     public function handle(): void
     {
         //
-        //(new Filesystem)->ensureDirectoryExists(app()->exactPublishedDomainAssetsPath());
+        // (new Filesystem)->ensureDirectoryExists(app()->exactPublishedDomainAssetsPath());
         ray(app()->exactRawDomainAssetsPath());
-        $rawAssets = (new Filesystem())->allFiles(app()->exactRawDomainAssetsPath());
-        $publishedAssets = (new Filesystem())->allFiles(app()->exactPublishedDomainAssetsPath());
+        $rawAssets = (new Filesystem)->allFiles(app()->exactRawDomainAssetsPath());
+        $publishedAssets = (new Filesystem)->allFiles(app()->exactPublishedDomainAssetsPath());
         ray($rawAssets, $publishedAssets);
         $users = progress(
             label: 'Updating users',
@@ -55,7 +53,7 @@ final class MoofImageProcessCommand extends Command implements PromptsForMissing
         //
         //
         //        });
-//        ray($rawAssets, $publishedAssets);
+        //        ray($rawAssets, $publishedAssets);
 
     }
 

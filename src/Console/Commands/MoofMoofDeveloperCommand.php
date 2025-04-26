@@ -9,11 +9,11 @@ use Illuminate\Console\GeneratorCommand;
 use Illuminate\Contracts\Console\PromptsForMissingInput;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
-use Symfony\Component\Yaml\Yaml;
 use function Laravel\Prompts\text;
+use Symfony\Component\Yaml\Yaml;
 
 /**
- * MoofMoofDeveloperCommand
+ * MoofMoofDeveloperCommand.
  *
  * It's really a GitHub command.
  *
@@ -22,7 +22,6 @@ use function Laravel\Prompts\text;
  *      - https://github.com/<username>/<username>.github.io
  *      - https://github.com/<username>/<username>-private
  *      - https://github.com/<username>/<username>-moof
- *
  */
 class MoofMoofDeveloperCommand extends GeneratorCommand implements PromptsForMissingInput
 {
@@ -39,13 +38,10 @@ class MoofMoofDeveloperCommand extends GeneratorCommand implements PromptsForMis
     protected $signature = 'x-moof:developer
                            {github_username : the github username to create accounts for}}';
 
-
-    protected $description = "Setup the developer environment for Moof Moof";
+    protected $description = 'Setup the developer environment for Moof Moof';
 
     /**
      * Execute the console command.
-     *
-     * @return void
      */
     public function handle(): void
     {
@@ -53,13 +49,12 @@ class MoofMoofDeveloperCommand extends GeneratorCommand implements PromptsForMis
         $username = $this->argument('github_username');
 
         $gitHubRawDetails = Cache::rememberForever('github.users.' . $username, function () use ($username) {
-            return Http::get("https://api.github.com/users/" . $username)->json();
+            return Http::get('https://api.github.com/users/' . $username)->json();
         });
 
         $gitHubRawDetails = collect($gitHubRawDetails);
 
-
-        if($gitHubRawDetails->has('status') && $gitHubRawDetails->doesntContain('node_id') && $gitHubRawDetails['status'] === "404") {
+        if ($gitHubRawDetails->has('status') && $gitHubRawDetails->doesntContain('node_id') && $gitHubRawDetails['status'] === '404') {
 
             $this->error("{$username} does not appear to a valid GitHUb user.");
             $this->newLine();
@@ -69,20 +64,18 @@ class MoofMoofDeveloperCommand extends GeneratorCommand implements PromptsForMis
 
         $gitHubDetails = GitHubberData::from($gitHubRawDetails);
 
-        $yaml = Yaml::dump($gitHubDetails->toArray(), 2 ,4, YAML::DUMP_MULTI_LINE_LITERAL_BLOCK);
+        $yaml = Yaml::dump($gitHubDetails->toArray(), 2, 4, Yaml::DUMP_MULTI_LINE_LITERAL_BLOCK);
 
-        #dump(__DIR__);
-        #dump(app_path());
-        //$this->files->exists();
+        // dump(__DIR__);
+        // dump(app_path());
+        // $this->files->exists();
 
-        #ray($gitHubRawDetails, $gitHubDetails)->red();
+        // ray($gitHubRawDetails, $gitHubDetails)->red();
 
-
-//        $response = Http::withHeaders([
-////            'Authorization' => 'token your-github-token',  // Optional
-////            'User-Agent' => 'Your-App',  // GitHub requires a user agent
-//        ])->post("https://moof.one.test/webhooks/beta-program", ['githubber'=>$gitHubDetails]);
-
+        //        $response = Http::withHeaders([
+        // //            'Authorization' => 'token your-github-token',  // Optional
+        // //            'User-Agent' => 'Your-App',  // GitHub requires a user agent
+        //        ])->post("https://moof.one.test/webhooks/beta-program", ['githubber'=>$gitHubDetails]);
 
         ray($gitHubRawDetails)->orange();
         ray($yaml)->orange();
@@ -91,8 +84,7 @@ class MoofMoofDeveloperCommand extends GeneratorCommand implements PromptsForMis
 
         // Assume we have the repos
 
-
-        /**
+        /*
          * Generate new keys for moof
          *      ssh-keygen -t ed25519 -C "your_email@example.com"
          *      ssh-keygen -t ed25519 -C "grayarea-uk@moof.uk"
@@ -110,16 +102,14 @@ class MoofMoofDeveloperCommand extends GeneratorCommand implements PromptsForMis
          *
          *      ssh-add --apple-use-keychain ~/.ssh/id_ed25519
          *      pbcopy < ~/.ssh/id_ed25519.pub
-         *
          */
-
     }
 
     protected function promptForMissingArgumentsUsing(): array
     {
 
         return [
-            'github_username' => fn() => text(
+            'github_username' => fn () => text(
                 label: 'Are you happy to join the limited beta program?',
                 default: 'deanhowe',
             ),

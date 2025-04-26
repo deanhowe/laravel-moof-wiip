@@ -6,24 +6,21 @@ namespace DeanHowe\Laravel\Moof\Console\Commands;
 
 use Carbon\Carbon;
 use DeanHowe\Laravel\Moof\MultiDomain\Console\DomainCommandTrait;
-use Illuminate\Console\GeneratorCommand;
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Process;
-use Illuminate\Process\Pool;
-use Wink\WinkAuthor;
-use Illuminate\Support\Str;
 use Illuminate\Console\Command;
+use Illuminate\Console\GeneratorCommand;
+use Illuminate\Contracts\Console\PromptsForMissingInput;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Contracts\Console\PromptsForMissingInput;
-
+use Illuminate\Support\Str;
 use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
+use Wink\WinkAuthor;
 
 final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsForMissingInput
 {
     use DomainCommandTrait;
+
     /**
      * The name and signature of the console command.
      * This commands would benefit from an easier way to have language support for the prompts.
@@ -55,30 +52,29 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
                            {--force : Force the operation to run when in production.}';
 
     /**
-     * The description of the command
+     * The description of the command.
      *
      * @var string The description of the command
      */
-    protected $description = "Install moof::moof - the Laravel framework for Moofiineers";
+    protected $description = 'Install moof::moof - the Laravel framework for Moofiineers';
 
     private bool $hasDeanFinishedThis = false;
+
     /**
-     * The composer data from the composer.json file
+     * The composer data from the composer.json file.
      *
-     * @var array $composerData The composer data from the composer.json file
+     * @var array The composer data from the composer.json file
      */
     private array $composerData;
 
     /**
      * Execute the console command.
-     *
-     * @return void
      */
     public function handle(): void
     {
 
         $this->error('Could not read composer.json');
-        //$this->files->isFile();
+        // $this->files->isFile();
         dump(__DIR__);
 
         return;
@@ -95,7 +91,6 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
 
         $this->callSilent('vendor:publish', ['--tag' => 'moof-moof-env', '--force' => true]);
 
-
         /** @psalm-suppress PossiblyInvalidArgument, PossiblyInvalidCast */
         $app_domain = $this->argument('app_domain');
         /** @psalm-suppress PossiblyInvalidArgument, PossiblyInvalidCast */
@@ -111,7 +106,7 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
 
         // $this->call('migrate:fresh');
 
-        //blade-icons:install
+        // blade-icons:install
 
         if ($this->confirm('Would you like to install Wink? (the Moof version)', false)) {
 
@@ -130,7 +125,7 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
             if ($shouldCreateNewAuthor) {
 
                 WinkAuthor::create([
-                    'id' => (string)Str::uuid(),
+                    'id' => (string) Str::uuid(),
                     'name' => $full_name,
                     'slug' => Str::slug($username),
                     'bio' => $profile_bio,
@@ -145,19 +140,20 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
             }
         }
 
-//        $this->call('x-moof:domain-add', [
-//            'domain' => 'moof',
-//            '--domain_values' => json_encode([
-//                'MOOF_USERNAME' => $username,
-//                'MOOF_EMAIL' => $email,
-//                'MOOF_PASSWORD' => $password,
-//            ]),
-//            '--force' => true,
-//            '--dev' => true,
-//        ]);
+        //        $this->call('x-moof:domain-add', [
+        //            'domain' => 'moof',
+        //            '--domain_values' => json_encode([
+        //                'MOOF_USERNAME' => $username,
+        //                'MOOF_EMAIL' => $email,
+        //                'MOOF_PASSWORD' => $password,
+        //            ]),
+        //            '--force' => true,
+        //            '--dev' => true,
+        //        ]);
 
         if (!$this->hasDeanFinishedThis) {
             $this->error('This feature has not been finished yet!');
+
             return;
         }
         /** @psalm-suppress PossiblyInvalidArgument, PossiblyInvalidCast */
@@ -175,38 +171,39 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
         $composerPath = __DIR__ . '/../../../../composer.json';
 
         if ($composerFile = file_get_contents($composerPath)) {
-            $composerData = (array)json_decode($composerFile, true);
+            $composerData = (array) json_decode($composerFile, true);
 
             $this->composerData = $composerData;
 
             $this->warn("  We are about to rename the package… {$package_full_name} by {$package_email}.");
             $this->newLine();
-            $this->warn("        from: deanhowe/laravel-package-boilerplate by deanhowe@gmail.com");
+            $this->warn('        from: deanhowe/laravel-package-boilerplate by deanhowe@gmail.com');
             $this->warn("        to: {$package_full_name} by {$package_email}");
             $this->newLine();
-            $this->warn("  We will have more questions for you…");
+            $this->warn('  We will have more questions for you…');
 
             if (!$this->confirm('Do you wish to continue?', true)) {
                 $this->info('Aborting...');
                 $this->newLine();
+
                 return;
             }
 
             $this->composerData['name'] = $package_full_name;
 
-            /** @psalm-suppress MixedArrayAssignment */
-            $this->composerData['autoload']['psr-4'] = ["{$package_classname}\\" => "src/"];
+            /* @psalm-suppress MixedArrayAssignment */
+            $this->composerData['autoload']['psr-4'] = ["{$package_classname}\\" => 'src/'];
 
-            /** @psalm-suppress MixedArrayAssignment */
+            /* @psalm-suppress MixedArrayAssignment */
             $this->composerData['extra']['laravel']['providers'][0] = "{$package_classname}\\Providers\\ServiceProvider";
 
-            /** @psalm-suppress MixedArrayAssignment */
+            /* @psalm-suppress MixedArrayAssignment */
             $this->composerData['description'] = $this->ask('Please enter a description for the package');
 
-            /** @psalm-suppress MixedArrayAssignment */
+            /* @psalm-suppress MixedArrayAssignment */
             $this->composerData['version'] = $this->ask('Please enter a version number for the package');
 
-            /** @psalm-suppress MixedArrayAssignment */
+            /* @psalm-suppress MixedArrayAssignment */
             $this->composerData['type'] = $this->choice(
                 'Please enter a type for the package',
                 ['library', 'project', 'metapackage', 'composer-plugin'],
@@ -216,7 +213,7 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
             /** @psalm-suppress MixedAssignment */
             $keywords = $this->ask('Please enter keywords for the package (comma seperated)');
             if (filled($keywords) && is_string($keywords)) {
-                /** @psalm-suppress MixedArrayAssignment */
+                /* @psalm-suppress MixedArrayAssignment */
                 $this->composerData['keywords'] = explode(',', $keywords);
             }
 
@@ -234,7 +231,7 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
 
             $this->composerData['time'] = Carbon::now()->rawFormat('Y-m-d H:i:s');
 
-            /** @psalm-suppress MixedArrayAssignment */
+            /* @psalm-suppress MixedArrayAssignment */
             if (is_array($composerData['license-options'])) {
                 $this->composerData['license'] = $this->choice(
                     'Which license do you want to use?',
@@ -253,33 +250,33 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
             if ($this->confirm('Add details for support?')) {
                 if ($this->confirm('Use github values?')) {
 
-                    /** @psalm-suppress MixedArrayAssignment, MixedArgument */
+                    /* @psalm-suppress MixedArrayAssignment, MixedArgument */
                     $this->composerData['support'] = collect($this->composerData['support'])->map(
-                        fn(string $value) => Str::of($value)->replace('deanhowe/laravel-package-boilerplate', $package_full_name)
+                        fn (string $value) => Str::of($value)->replace('deanhowe/laravel-package-boilerplate', $package_full_name)
                     )->toArray();
 
                     /** @psalm-suppress MixedAssignment */
                     $support_email = $this->ask('Please enter the support email');
                     if (filled($support_email)) {
-                        /** @psalm-suppress MixedArrayAssignment */
+                        /* @psalm-suppress MixedArrayAssignment */
                         $this->composerData['support']['email'] = $support_email;
                     }
 
                     /** @psalm-suppress MixedAssignment */
                     $support_irc = $this->ask('Please enter IRC channel for support, e.g irc://server/channel');
                     if (filled($support_irc)) {
-                        /** @psalm-suppress MixedArrayAssignment */
+                        /* @psalm-suppress MixedArrayAssignment */
                         $this->composerData['support']['irc'] = $support_irc;
                     }
 
                 } else {
                     if (is_array($composerData['support-suggestions'])) {
-                        /** @psalm-suppress MixedAssignment */
+                        /* @psalm-suppress MixedAssignment */
                         foreach ($composerData['support-suggestions'] as $type => $support_suggestion) {
                             /** @psalm-suppress MixedArgument */
                             $support = $this->ask($support_suggestion);
                             if (filled($support)) {
-                                /** @psalm-suppress MixedArrayAssignment */
+                                /* @psalm-suppress MixedArrayAssignment */
                                 $this->composerData['support'][$type] = $support;
                             }
                         }
@@ -298,10 +295,10 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
                 /** @psalm-suppress MixedAssignment */
                 $funding_url = $this->ask('Please enter the funding url');
                 if (filled($funding_url) && filled($funding_source)) {
-                    /** @psalm-suppress MixedArrayAssignment */
+                    /* @psalm-suppress MixedArrayAssignment */
                     $this->composerData['funding'][] = [
                         'type' => $funding_source,
-                        'url' => $funding_url
+                        'url' => $funding_url,
                     ];
                 }
             }
@@ -332,6 +329,7 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
             if (!$this->confirm('Promise you’ll read and update the `composer.json` file we are about to create manually?', true)) {
                 $this->info('Aborting...');
                 $this->newLine();
+
                 return;
             }
 
@@ -355,89 +353,89 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
     {
 
         return [
-            'beta' => fn() => select(
+            'beta' => fn () => select(
                 label: 'Are you happy to join the limited beta program?',
                 options: [
                     'yes' => 'Yes',
                 ]
             ),
-            'app_name' => fn() => text(
+            'app_name' => fn () => text(
                 label: 'What is the initial app name to be used during set-up?',
                 placeholder: 'Your App Name',
                 default: env('APP_NAME'),
                 hint: env('APP_NAME', 'Moof Test')
             ),
-            'app_domain' => fn() => text(
+            'app_domain' => fn () => text(
                 label: 'What is the initial domain to be used during set-up?',
                 placeholder: '',
                 default: $this->guessFQDN(),
-                validate: fn($value) => $this->validateDomain($value),
+                validate: fn ($value) => $this->validateDomain($value),
                 hint: 'e.g. moof.test'
             ),
 
-            'app_url' => fn() => text(
+            'app_url' => fn () => text(
                 label: 'What is the initial app url to be used during set-up?',
                 placeholder: '',
                 default: env('APP_URL', 'https://' . $this->argument('app_domain')),
-                validate: fn($value) => $this->validateUrl($value),
+                validate: fn ($value) => $this->validateUrl($value),
                 hint: 'e.g. https://moof.test'
             ),
 
-            'app_logo' => fn() => text(
+            'app_logo' => fn () => text(
                 label: 'What is the initial app logo to be used during set-up?',
                 placeholder: '',
                 default: env('APP_LOGO', $this->guessLogo($this->argument('app_domain'))),
-                validate: fn($value) => $this->validateSVGPath($value),
+                validate: fn ($value) => $this->validateSVGPath($value),
                 hint: 'e.g. images/moof-logo.svg'
             ),
 
-            'full_name' => fn() => text(
+            'full_name' => fn () => text(
                 label: 'What is the developer/admin name to use during set-up?',
                 placeholder: 'Dean Howe',
                 default: env('SENIOR_DEV_NAME', 'Dean Howe'),
-                validate: fn($value) => $this->validateFullname($value),
+                validate: fn ($value) => $this->validateFullname($value),
                 hint: 'e.g. Dean Howe'
             ),
 
-            'username' => fn() => text(
+            'username' => fn () => text(
                 label: 'What is the developer/admin username to be used during set-up?',
                 placeholder: '',
                 default: env('APP_DOMAIN'),
-                validate: fn($value) => $this->validateDomain($value),
+                validate: fn ($value) => $this->validateDomain($value),
                 hint: 'e.g. yourappname.test'
             ),
 
-            'email' => fn() => text(
+            'email' => fn () => text(
                 label: 'What is the developer/admin email address to be used during set-up?',
                 placeholder: '',
                 default: env('APP_DOMAIN'),
-                validate: fn($value) => $this->validateDomain($value),
+                validate: fn ($value) => $this->validateDomain($value),
                 hint: 'e.g. yourappname.test'
             ),
 
-            'password' => fn() => text(
+            'password' => fn () => text(
                 label: 'What is the developer/admin password to be used during set-up?',
                 placeholder: '',
                 default: env('APP_DOMAIN'),
-                validate: fn($value) => $this->validateDomain($value),
+                validate: fn ($value) => $this->validateDomain($value),
                 hint: 'e.g. yourappname.test'
             ),
 
-            'profile_bio' => fn() => text(
+            'profile_bio' => fn () => text(
                 label: 'What is the developer/admin profile bio to be used during set-up (Wink)?',
                 placeholder: '',
                 default: env('APP_DOMAIN'),
-                validate: fn($value) => $this->validateDomain($value),
+                validate: fn ($value) => $this->validateDomain($value),
                 hint: 'e.g. yourappname.test'
             ),
         ];
 
-//        return [
-//            'package_name' => 'What name (slug) would you like to use for your package?',
-//            'package_vendor' => 'What vendor name (slug) would you like to use?',
-//            'package_classname' => 'What classname would you like to replace the word `Package` with (e.g. `MyAwesomePackage`) in the composer file?',
-//            'package_email' => 'What email address would you like to use?',
-//        ];
+        //        return [
+        //            'package_name' => 'What name (slug) would you like to use for your package?',
+        //            'package_vendor' => 'What vendor name (slug) would you like to use?',
+        //            'package_classname' => 'What classname would you like to replace the word `Package` with (e.g. `MyAwesomePackage`) in the composer file?',
+        //            'package_email' => 'What email address would you like to use?',
+        //        ];
     }
 
     private function _askForAuthorDetails(): void
@@ -454,23 +452,23 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
         $author_role = text('Please enter the author role (optional)');
 
         if (filled($author_name)) {
-            /** @psalm-suppress MixedAssignment */
+            /* @psalm-suppress MixedAssignment */
             $author['name'] = $author_name;
         }
         if (filled($author_email)) {
-            /** @psalm-suppress MixedAssignment */
+            /* @psalm-suppress MixedAssignment */
             $author['email'] = $author_email;
         }
         if (filled($author_homepage)) {
-            /** @psalm-suppress MixedAssignment */
+            /* @psalm-suppress MixedAssignment */
             $author['homepage'] = $author_homepage;
         }
         if (filled($author_role)) {
-            /** @psalm-suppress MixedAssignment */
+            /* @psalm-suppress MixedAssignment */
             $author['role'] = $author_role;
         }
         if (filled($author)) {
-            /** @psalm-suppress MixedArrayAssignment */
+            /* @psalm-suppress MixedArrayAssignment */
             $this->composerData['authors'][] = $author;
         }
     }
@@ -483,7 +481,8 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
         if (env('APP_ENV') === 'local') {
             $fqdn = Str::of($fqdn)->replace('test', '') . '.test';
         }
-        return (string)$fqdn;
+
+        return (string) $fqdn;
     }
 
     public function guessLogo($svg): string
@@ -508,6 +507,7 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
             // Handle invalid FQDN
             return 'The domain needs to be a Full Qualified Domain Name (FQDN).';
         }
+
         return null;
 
     }
@@ -518,6 +518,7 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
             // Handle invalid FQDN
             return 'The url needs to be a valid url.';
         }
+
         return null;
 
     }
@@ -527,6 +528,7 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
         if (!Str::of($svgPath)->startsWith('images/') || !Str::of($svgPath)->endsWith('-logo.svg')) {
             return 'This is not valid, the logo needs to be in public `images` folder and end with `-logo.svg`.';
         }
+
         return null;
 
     }
@@ -540,10 +542,10 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
             // Handle validation failure
             return 'The full name should only contain letters.';
         }
+
         return null;
 
     }
-
 
     protected function getStub()
     {

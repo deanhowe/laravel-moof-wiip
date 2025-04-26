@@ -1,4 +1,6 @@
-<?php namespace DeanHowe\Laravel\Moof\MultiDomain\Console;
+<?php
+
+namespace DeanHowe\Laravel\Moof\MultiDomain\Console;
 
 use Config;
 use Illuminate\Filesystem\Filesystem;
@@ -16,15 +18,14 @@ trait DomainCommandTrait
     protected $files;
 
     /**
-     * The name of the configuration file of the package
-     * @var string
+     * The name of the configuration file of the package.
      */
     protected string $configFile = 'domain';
 
     /**
      * Has Moof Moof been installed?
-     * @param null $domain
-     * @return string
+     *
+     * @param  null  $domain
      */
     protected function isInstalled(): string
     {
@@ -32,9 +33,9 @@ trait DomainCommandTrait
     }
 
     /**
-     * Returns the path of the .env file for the specified domain
-     * @param null $domain
-     * @return string
+     * Returns the path of the .env file for the specified domain.
+     *
+     * @param  null  $domain
      */
     protected function getDomainEnvFilePath($domain = null): string
     {
@@ -46,63 +47,67 @@ trait DomainCommandTrait
     }
 
     /**
-     * Returns the path of the asset folder for the specified domain
-     * @param null $domain
-     * @return string
+     * Returns the path of the asset folder for the specified domain.
+     *
+     * @param  null  $domain
      */
     protected function getDomainAssetPath($domain = null): string
     {
         $path = app()->exactDomainAssetPath($domain);
+
         return $path;
     }
 
     /**
-     * Returns the path of the markdown folder for the specified domain
-     * @param null $domain
-     * @return string
+     * Returns the path of the markdown folder for the specified domain.
+     *
+     * @param  null  $domain
      */
     protected function getDomainMarkdownPath($domain = null): string
     {
         $path = app()->exactDomainMarkdownPath($domain);
+
         return $path;
     }
 
     /**
-     * Returns the path of the markdown folder for the specified domain
-     * @param null $domain
-     * @return string
+     * Returns the path of the markdown folder for the specified domain.
+     *
+     * @param  null  $domain
      */
     protected function getDomainLanguagePath($domain = null): string
     {
         $path = app()->exactDomainLanguagePath($domain);
+
         return $path;
     }
 
     /**
-     * Returns the path of the storage folder for the specified domain
-     * @param null $domain
-     * @return string
+     * Returns the path of the storage folder for the specified domain.
+     *
+     * @param  null  $domain
      */
     protected function getDomainStoragePath($domain = null): string
     {
         $path = app()->exactDomainStoragePath($domain);
+
         return $path;
     }
 
     /**
-     * Returns the path of the markdown theme for the specified domain
-     * @param null $domain
-     * @return string
+     * Returns the path of the markdown theme for the specified domain.
+     *
+     * @param  null  $domain
      */
     protected function getDomainThemePath($domain = null): string
     {
         $path = app()->exactDomainThemePath($domain);
+
         return $path;
     }
 
     /**
-     * Returns the contents of the stub of the package's configuration file
-     * @return mixed
+     * Returns the contents of the stub of the package's configuration file.
      */
     protected function getConfigStub(): mixed
     {
@@ -119,7 +124,7 @@ trait DomainCommandTrait
      * This method updates the package's config file by adding or removing the domain handled by the caller command.
      * It calls either the addDomainToConfigFile or the removeDomainToConfigFile method of the caller.
      *
-     * @param string $opType (add|remove)
+     * @param  string  $opType  (add|remove)
      */
     protected function updateConfigFile(string $opType = 'add'): void
     {
@@ -134,20 +139,30 @@ trait DomainCommandTrait
         $finalConfig = call_user_func_array([$this, $methodName], [$config]);
 
         $modelConfigStub = str_replace(
-            '{{$configArray}}', var_export($finalConfig, true), $configStub
+            '{{$configArray}}',
+            var_export($finalConfig, true),
+            $configStub
         );
 
         $modelConfigStub = str_replace(
-            'return array (', 'return [', $modelConfigStub
+            'return array (',
+            'return [',
+            $modelConfigStub
         );
         $modelConfigStub = str_replace(
-            ');', ' ];', $modelConfigStub
+            ');',
+            ' ];',
+            $modelConfigStub
         );
         $modelConfigStub = str_replace(
-            ["\narray (", "\n  array (", "\n    array (", "\n      array ("], '[', $modelConfigStub
+            ["\narray (", "\n  array (", "\n    array (", "\n      array ("],
+            '[',
+            $modelConfigStub
         );
         $modelConfigStub = str_replace(
-            ["),"], "],", $modelConfigStub
+            ['),'],
+            '],',
+            $modelConfigStub
         );
 
         $this->files->put($filename, $modelConfigStub);
@@ -157,20 +172,17 @@ trait DomainCommandTrait
     /**
      * This method gets the contents of a file formatted as a standard .env file
      * i.e. with each line in the form of KEY=VALUE
-     * and returns the entries as an array
-     *
-     * @param $path
-     * @return array
+     * and returns the entries as an array.
      */
     protected function getVarsArray($path): array
     {
         $envFileContents = $this->files->get($path);
         $envFileContentsArray = explode("\n", $envFileContents);
-        $varsArray = array();
+        $varsArray = [];
         foreach ($envFileContentsArray as $line) {
             $lineArray = explode('=', $line);
 
-            //Skip the line if there is no '='
+            // Skip the line if there is no '='
             if (count($lineArray) < 2) {
                 continue;
             }
@@ -179,13 +191,12 @@ trait DomainCommandTrait
             $varsArray[$lineArray[0]] = trim($value);
 
         }
+
         return $varsArray;
     }
 
     /**
-     * This method prepares the values of an .env file to be stored
-     * @param $domainValues
-     * @return string
+     * This method prepares the values of an .env file to be stored.
      */
     protected function makeDomainEnvFileContents($domainValues): string
     {
@@ -201,6 +212,7 @@ trait DomainCommandTrait
             $contents .= $key . '=' . $value . "\n";
             $previousKeyPrefix = $keyPrefix;
         }
+
         return $contents;
     }
 
@@ -223,8 +235,15 @@ trait DomainCommandTrait
             $this->files->ensureDirectoryExists("./resources/sites/{$username}");
 
             $pool = Process::pool(function (Pool $pool) use (
-                $username, $gitHubPublicRepo, $gitHubPrivateRepo, $gitHubIoRepo, $gitHubMoofRepo,
-                &$privetRepoResults, & $publicRepoResults, &$gitHubMoofRepoResults, &$gitHubIORepoResults
+                $username,
+                $gitHubPublicRepo,
+                $gitHubPrivateRepo,
+                $gitHubIoRepo,
+                $gitHubMoofRepo,
+                &$privetRepoResults,
+                &$publicRepoResults,
+                &$gitHubMoofRepoResults,
+                &$gitHubIORepoResults
             ) {
                 $siteDirectory = "./resources/sites/{$username}";
 
@@ -257,10 +276,18 @@ trait DomainCommandTrait
             /** @var ProcessResult[] $results */
             $results = $pool->wait();
 
-            if ($results['public']->failed()) $this->error(trim($results['private']->errorOutput(), "\n"));
-            if ($results['github.io']->failed()) $this->error(trim($results['private']->errorOutput(), "\n"));
-            if ($results['private']->failed()) $this->error(trim($results['private']->errorOutput(), "\n"));
-            if ($results['moof']->failed()) $this->error(trim($results['private']->errorOutput(), "\n"));
+            if ($results['public']->failed()) {
+                $this->error(trim($results['private']->errorOutput(), "\n"));
+            }
+            if ($results['github.io']->failed()) {
+                $this->error(trim($results['private']->errorOutput(), "\n"));
+            }
+            if ($results['private']->failed()) {
+                $this->error(trim($results['private']->errorOutput(), "\n"));
+            }
+            if ($results['moof']->failed()) {
+                $this->error(trim($results['private']->errorOutput(), "\n"));
+            }
         }
 
         return $results;

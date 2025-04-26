@@ -1,34 +1,27 @@
 <?php
 
+use App\Actions\Moof\CreateBetaUser;
 use App\Models\UnknownUser;
 use App\Models\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
-use App\Actions\Moof\CreateBetaUser;
-
 
 if (!function_exists('🤟')) {
 
     /**
      * Translate the given message.
      *
-     * @param string|null $key
-     * @param array $replace
-     * @param string|null $locale
-     * @param array $markdown_options
-     * @param bool $inline
-     * @param string $engine laravel|spatie default: laravel (spatie uses the spatie/markdown package) and laravel uses the laravel/markdown package
-     * @return string
+     * @param  string  $engine  laravel|spatie default: laravel (spatie uses the spatie/markdown package) and laravel uses the laravel/markdown package
      */
-    function 🤟(string $key = null, array $replace = [], string $locale = null, array $markdown_options = [], bool $inline = false, string $engine = 'laravel'): string
+    function 🤟(?string $key = null, array $replace = [], ?string $locale = null, array $markdown_options = [], bool $inline = false, string $engine = 'laravel'): string
     {
         // #TODO: add config('app.domain') . DIRECTORY_SEPARATOR to the key if the folder for the aap.domain exists
         // Str::sites(__(config('app.domain') .'.' .$lang_line)):
 
-        $inlineMarkdown = ( $engine === 'spatie' ) ? Str::spatieMarkdown($key) : Str::markdown(__($key, $replace, $locale), $markdown_options) ;
+        $inlineMarkdown = ($engine === 'spatie') ? Str::spatieMarkdown($key) : Str::markdown(__($key, $replace, $locale), $markdown_options);
 
         return (!$inline) ?
             $inlineMarkdown :
@@ -50,7 +43,7 @@ if (!function_exists('moofUser')) {
             if (auth('unknown_users')->user()) {
                 $user = auth('unknown_users')->user();
             } else {
-                $createBetaUserAction = new CreateBetaUser();
+                $createBetaUserAction = new CreateBetaUser;
                 $user = $createBetaUserAction->execute();
             }
 
@@ -58,28 +51,27 @@ if (!function_exists('moofUser')) {
 
         $user->save();
 
-        //ray($user);
+        // ray($user);
 
         if (in_array('weatherapi.com', $user->consented_to['sites'] ?? [])) {
             if ($user->weatherResults()->doesntExist()) {
 
                 // ray();
 
-
-                $weather = Cache::store('redis')->remember('weatherapi:&q=31.120.193.89', (60 * 60 * 4), function () use ($user) {
-                    $endpoint = (string)'http://api.weatherapi.com/v1/forecast.json?key=' . config('app.weather_api_key')
+                $weather = Cache::store('redis')->remember('weatherapi:&q=31.120.193.89', (60 * 60 * 4), function () {
+                    $endpoint = (string) 'http://api.weatherapi.com/v1/forecast.json?key=' . config('app.weather_api_key')
                         . '&q=31.120.193.89&days=1&aqi=no&alerts=no';
                     $response = Http::acceptJson()->get($endpoint);
 
                     Cache::store('redis')->decrement('weatherAPIcount');
+
                     // ray($response, $response->body(), $response->json(), $response->object());
                     return $response->json();
                 });
 
                 $user->weatherResults()->create([
-                    'weather_dump' => $weather ?? json_encode([])
+                    'weather_dump' => $weather ?? json_encode([]),
                 ]);
-
 
                 $user->refresh();
 
@@ -106,14 +98,15 @@ if (!function_exists('billingPortalButton')) {
 if (!function_exists('productButton')) {
     function productButton(string $version = 'pro', string $period = 'monthly', $title = 'Pro monthly Moof.digital subscription')
     {
-        return sprintf('<a href="%s" title="%s" class="btn-primary">%s</a>',
+        return sprintf(
+            '<a href="%s" title="%s" class="btn-primary">%s</a>',
             route('product.subscription.checkout', [
                 'version' => $version,
                 'period' => $period,
             ]),
             route('product.subscription.checkout', [
                 'period' => $period,
-                'version' => $version
+                'version' => $version,
             ]),
             __($title)
         );
@@ -123,12 +116,12 @@ if (!function_exists('productButton')) {
 if (!function_exists('subscriptionButton')) {
     function subscriptionButton(string $version = 'basic', string $period = 'monthly', $title = 'Content subscription (monthly)'): string
     {
-        return sprintf('<a href="%s" title="%s" class="btn-primary">%s</a>',
+        return sprintf(
+            '<a href="%s" title="%s" class="btn-primary">%s</a>',
             route('subscription.checkout', [
                 'version' => $version,
                 'period' => $period,
             ]),
-
             route('subscription.checkout', [
                 'version' => $version,
                 'period' => $period,
@@ -149,6 +142,7 @@ if (!function_exists('getCallingMethodName')) {
                 return $trace[2]['function'];
             }
         }
+
         return null;
     }
 }
@@ -163,9 +157,12 @@ if (!function_exists('databaseExists')) {
 }
 
 if (!function_exists('devray')) {
-    function devray(...$args): \Spatie\Ray\Ray|\Spatie\WordPressRay\Ray|\Spatie\RayBundle\Ray|\Spatie\YiiRay\Ray|\Spatie\LaravelRay\Ray|null
+    function devray(...$args): Spatie\Ray\Ray|Spatie\WordPressRay\Ray|Spatie\RayBundle\Ray|Spatie\YiiRay\Ray|Spatie\LaravelRay\Ray|null
     {
-        if(!app()->environment('dev')) return null;
+        if (!app()->environment('dev')) {
+            return null;
+        }
+
         return ray(...$args);
     }
 }

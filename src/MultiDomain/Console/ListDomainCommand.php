@@ -1,4 +1,6 @@
-<?php namespace DeanHowe\Laravel\Moof\MultiDomain\Console;
+<?php
+
+namespace DeanHowe\Laravel\Moof\MultiDomain\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
@@ -6,7 +8,6 @@ use Illuminate\Support\Collection;
 
 class ListDomainCommand extends Command
 {
-
     use DomainCommandTrait;
 
     /**
@@ -17,7 +18,7 @@ class ListDomainCommand extends Command
     protected $signature = 'x-moof:domain-list
                             {--output=txt : the output type json or txt (txt as default)}';
 
-    protected $description = "Lists the domains the application is aware of.";
+    protected $description = 'Lists the domains the application is aware of.';
 
     protected $domain;
 
@@ -27,14 +28,15 @@ class ListDomainCommand extends Command
     public function handle()
     {
 
-        if(! $this->isInstalled()) {
+        if (!$this->isInstalled()) {
 
-            $this->line("<info>Please install</info> <comment>Moof🐮Moof</comment> <info>`php artisan x-moof:install`</info>");
+            $this->line('<info>Please install</info> <comment>Moof🐮Moof</comment> <info>`php artisan x-moof:install`</info>');
+
             return;
         }
 
         $this->newLine();
-        $this->line("<info>You have the following </info> <comment>Moof🐮Moof</comment> <info> domains installed :</info>");
+        $this->line('<info>You have the following </info> <comment>Moof🐮Moof</comment> <info> domains installed :</info>');
         $this->newLine();
         /*
          * GET CONFIG FILE
@@ -48,7 +50,6 @@ class ListDomainCommand extends Command
          * GET DOMAINS BASED ON domains KEY IN THE CONFIG FILE
          */
         $domains = Arr::get($config, 'domains', []);
-
 
         /*
          * Simply returns the info for each domain found in config.
@@ -71,19 +72,19 @@ class ListDomainCommand extends Command
                     break;
             }
         } else {
-            $this->info("No domains found");
+            $this->info('No domains found');
         }
     }
 
     protected function outputAsText(Collection $domains)
     {
         foreach ($domains as $domain) {
-            $this->line("<info>Domain: </info><comment>" . Arr::get($domain, 'domain') . "</comment>");
+            $this->line('<info>Domain: </info><comment>' . Arr::get($domain, 'domain') . '</comment>');
 
-            $this->line("<info> - Storage dir: </info><comment>" . Arr::get($domain, 'storage_dir') . "</comment>");
-            $this->line("<info> - Env file: </info><comment>" . Arr::get($domain, 'env_file') . "</comment>");
+            $this->line('<info> - Storage dir: </info><comment>' . Arr::get($domain, 'storage_dir') . '</comment>');
+            $this->line('<info> - Env file: </info><comment>' . Arr::get($domain, 'env_file') . '</comment>');
 
-            $this->line("");
+            $this->line('');
 
         }
     }
@@ -102,7 +103,7 @@ class ListDomainCommand extends Command
     {
         $result = [];
         foreach ($domains as $domain) {
-            $result [] = [
+            $result[] = [
                 'domain' => $domain,
                 'storage_dir' => $this->getDomainStoragePath($domain),
                 'env_file' => $this->getDomainEnvFilePath($domain),

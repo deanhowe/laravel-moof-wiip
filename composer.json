@@ -57,7 +57,7 @@
         "ext-pdo": "*",
         "blade-ui-kit/blade-heroicons": "^2.6",
         "blade-ui-kit/blade-icons": "^1.8.0",
-        "deanhowe/moof-folio-markdown": ">=0.0.1",
+        "deanhowe/moof-folio-markdown": "^0.0.2",
         "deanhowe/moof-laravel-bot-bus": ">=0.0.3",
         "deanhowe/moof-laravel-pulse-packages": ">=0.0.1",
         "embed/embed": "^4.4.15",

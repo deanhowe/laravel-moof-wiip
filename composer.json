@@ -246,14 +246,10 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "repositories-live": {
+    "repositories": {
         "spatie": {
             "type": "composer",
             "url": "https://satis.spatie.be"
-        },
-        "wink": {
-            "type": "vcs",
-            "url": "https://github.com/deanhowe/wink.git"
         },
         "moof": {
             "type": "vcs",
@@ -280,34 +276,30 @@
             "url": "https://github.com/deanhowe/laravel-moof.git"
         }
     },
-    "repositories": {
+    "repositories-local": {
         "spatie": {
             "type": "composer",
             "url": "https://satis.spatie.be"
         },
-        "wink": {
-            "type": "path",
-            "url": "../../PHP_VENDOR/wink"
-        },
         "moof": {
             "type": "path",
-            "url": "../../PHP_VENDOR/laravel-moof-wiip/"
+            "url": "../../PACKAGES/laravel-moof-wiip/"
         },
         "moof-laravel-multidomain": {
             "type": "path",
-            "url": "../../PHP_VENDOR/moof-laravel-multidomain"
+            "url": "../../PACKAGES/moof-laravel-multidomain"
         },
         "moof-laravel-bot-bus": {
             "type": "path",
-            "url": "../../PHP_VENDOR/moof-laravel-block-bots"
+            "url": "../../PACKAGES/moof-laravel-block-bots"
         },
         "moof-folio-markdown": {
             "type": "path",
-            "url": "../../PHP_VENDOR/moof-folio-markdown"
+            "url": "../../PACKAGES/moof-folio-markdown"
         },
         "moof-laravel-pulse-packages": {
             "type": "path",
-            "url": "../../PHP_VENDOR/moof-laravel-pulse-packages"
+            "url": "../../PACKAGES/moof-laravel-pulse-packages"
         },
         "github": {
             "type": "vcs",

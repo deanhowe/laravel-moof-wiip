@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use function Laravel\Prompts\select;
 use function Laravel\Prompts\text;
-use Wink\WinkAuthor;
+// use Wink\WinkAuthor;
 
 final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsForMissingInput
 {
@@ -108,6 +108,7 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
 
         // blade-icons:install
 
+/*
         if ($this->confirm('Would you like to install Wink? (the Moof version)', false)) {
 
             $this->call('wink:install');
@@ -139,6 +140,7 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
                 $this->line('');
             }
         }
+        */
 
         //        $this->call('x-moof:domain-add', [
         //            'domain' => 'moof',

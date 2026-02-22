@@ -98,7 +98,6 @@
         "spatie/shiki-php": "^2.3.2",
         "spatie/yaml-front-matter": "^2.1",
         "stevebauman/purify": "^v6.3.0",
-        "themsaid/wink": "1.x-dev",
         "genealabs/laravel-caffeine": "^12.0.3"
     },
     "require-dormant": {

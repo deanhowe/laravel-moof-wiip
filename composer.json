@@ -59,7 +59,7 @@
         "blade-ui-kit/blade-icons": "^1.8.0",
         "calebporzio/sushi": "^2.5",
         "deanhowe/moof-folio-markdown": "dev-main",
-        "deanhowe/moof-laravel-bot-bus": "dev-main",
+        "deanhowe/moof-laravel-bot-bus": "dev-master",
         "deanhowe/moof-laravel-pulse-packages": "dev-main",
         "elegantly/laravel-money": "^2.3",
         "guzzlehttp/guzzle": "^7.9.3",

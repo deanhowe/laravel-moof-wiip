@@ -55,36 +55,39 @@
     "require": {
         "php": "^8.2",
         "ext-pdo": "*",
-        "blade-ui-kit/blade-heroicons": "^2.6",
+        "blade-ui-kit/blade-heroicons": "^2.6.0",
         "blade-ui-kit/blade-icons": "^1.8.0",
-        "deanhowe/moof-folio-markdown": "0.0.2",
+        "calebporzio/sushi": "^2.5",
+        "deanhowe/moof-folio-markdown": "0.0.3",
         "deanhowe/moof-laravel-bot-bus": ">=0.0.3",
         "deanhowe/moof-laravel-pulse-packages": ">=0.0.1",
-        "embed/embed": "^4.4.15",
-        "giberti/commonmark-emoji-extension": "^1.4",
+        "elegantly/laravel-money": "^2.3",
         "guzzlehttp/guzzle": "^7.9.3",
-        "ijpatricio/mingle": "^0.0.18",
+        "ijpatricio/mingle": "^v0.0.21",
         "laravel/cashier": "^15.6.4",
-        "laravel/folio": "^1.1.10",
-        "laravel/framework": "^11.44.7",
+        "laravel/framework": "^v12.13.0",
+        "livewire/livewire": "^3.7",
         "laravel/horizon": ">=5.31.2",
         "laravel/jetstream": "^5.3.6",
+        "laravel/nightwatch": "^1.22",
+        "laravel/octane": "^2.13.1",
         "laravel/pennant": "^1.16.1",
         "laravel/prompts": "^0.3.5",
         "laravel/pulse": "^1.4.1",
-        "laravel/sanctum": "^4.1.0",
+        "laravel/sanctum": "^4.1.1",
         "laravel/slack-notification-channel": "^3.5.0",
         "laravel/socialite": "^5.20.0",
         "laravel/tinker": "^2.10.1",
         "livewire/livewire": "^3.6.3",
-        "livewire/volt": "1.7.0.0",
-        "openai-php/client": "^0.10.3",
-        "openai-php/laravel": "^0.10.2 ",
-        "propaganistas/laravel-phone": "^5.3.6",
+        "livewire/volt": "^1.7.1",
+        "openai-php/client": "^v0.12.0",
+        "openai-php/laravel": "^v0.12.0 ",
+        "propaganistas/laravel-phone": "^6.0.1",
         "pusher/pusher-php-server": "^7.2.7",
+        "smalot/pdfparser": "^2.12",
         "socialiteproviders/apple": "^5.6.1",
         "socialiteproviders/dropbox": "^4.2.1",
-        "socialiteproviders/github": "^4.1",
+        "socialiteproviders/github": "^4.1.0",
         "spatie/data-transfer-object": "^3.9.1",
         "spatie/flysystem-dropbox": "^3.0.2",
         "spatie/image": "^3.8.3",
@@ -94,32 +97,34 @@
         "spatie/laravel-ray": "^1.40.2",
         "spatie/shiki-php": "^2.3.2",
         "spatie/yaml-front-matter": "^2.1",
-        "stevebauman/purify": "^6.3.0",
-        "genealabs/laravel-caffeine": "^11.0",
-        "themsaid/wink": "dev-l11-compatibility"
+        "stevebauman/purify": "^v6.3.0",
+        "themsaid/wink": "1.x-dev",
+        "genealabs/laravel-caffeine": "^12.0.3"
+    },
+    "require-dormant": {
     },
     "require-dev": {
-        "fakerphp/faker": "^1.24.1",
+        "fakerphp/faker": "^v1.24.1",
         "laravel/browser-kit-testing": ">=7.2.4",
         "laravel/dusk": "^8.3.2",
-        "laravel/pint": "^1.22.0",
-        "laravel/sail": "^1.41.1",
+        "laravel/pint": "^v1.22.1",
+        "laravel/sail": "^1.42.0",
         "mockery/mockery": "^1.6.12",
         "nunomaduro/collision": "^8.8.0",
         "larastan/larastan": ">=3.4.0",
-        "orchestra/testbench": "^9.13.0",
-        "orchestra/testbench-browser-kit": "^9.2.0",
-        "orchestra/testbench-dusk": "^9.16.0",
+        "orchestra/testbench": "^v10.2.2",
+        "orchestra/testbench-browser-kit": "^v10.1.0",
+        "orchestra/testbench-dusk": "^v10.2.2",
         "pestphp/pest": "^3.8.2",
-        "pestphp/pest-plugin-laravel": "^3.2.0",
-        "pestphp/pest-plugin-type-coverage": "^3.5.1",
+        "pestphp/pest-plugin-laravel": "^v3.2.0",
+        "pestphp/pest-plugin-type-coverage": "^v3.5.1",
         "phpcompatibility/php-compatibility": "^9.3.5",
         "spatie/laravel-ignition": "^2.9.1",
-        "infection/infection": "^0.28.1",
+        "infection/infection": "^0.29.14",
         "roave/security-advisories": "dev-latest",
         "squizlabs/php_codesniffer": "^3.12.2",
-        "slevomat/coding-standard": "^8.17.1",
-        "friendsofphp/php-cs-fixer": "^3.75"
+        "slevomat/coding-standard": "^8.18.0",
+        "friendsofphp/php-cs-fixer": "^v3.75.0"
     },
     "conflict": {
         "phpunit/phpunit": "<10.0.0"
@@ -242,14 +247,14 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "repositories": {
+    "repositories-live": {
         "spatie": {
             "type": "composer",
             "url": "https://satis.spatie.be"
         },
         "wink": {
             "type": "vcs",
-            "url": "https://github.com/laravel-shift/wink.git"
+            "url": "https://github.com/deanhowe/wink.git"
         },
         "moof": {
             "type": "vcs",
@@ -270,6 +275,40 @@
         "moof-laravel-pulse-packages": {
             "type": "vcs",
             "url": "https://github.com/deanhowe/moof-laravel-pulse-packages.git"
+        },
+        "github": {
+            "type": "vcs",
+            "url": "https://github.com/deanhowe/laravel-moof.git"
+        }
+    },
+    "repositories": {
+        "spatie": {
+            "type": "composer",
+            "url": "https://satis.spatie.be"
+        },
+        "wink": {
+            "type": "path",
+            "url": "../../PHP_VENDOR/wink"
+        },
+        "moof": {
+            "type": "path",
+            "url": "../../PHP_VENDOR/laravel-moof-wiip/"
+        },
+        "moof-laravel-multidomain": {
+            "type": "path",
+            "url": "../../PHP_VENDOR/moof-laravel-multidomain"
+        },
+        "moof-laravel-bot-bus": {
+            "type": "path",
+            "url": "../../PHP_VENDOR/moof-laravel-block-bots"
+        },
+        "moof-folio-markdown": {
+            "type": "path",
+            "url": "../../PHP_VENDOR/moof-folio-markdown"
+        },
+        "moof-laravel-pulse-packages": {
+            "type": "path",
+            "url": "../../PHP_VENDOR/moof-laravel-pulse-packages"
         },
         "github": {
             "type": "vcs",

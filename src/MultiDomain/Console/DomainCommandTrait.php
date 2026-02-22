@@ -43,7 +43,7 @@ trait DomainCommandTrait
             $domain = $this->domain;
         }
 
-        return rtrim(env_path('.env.' . $domain), '.');
+        return rtrim(app()->environmentPath() . '/.env.' . $domain, '.');
     }
 
     /**

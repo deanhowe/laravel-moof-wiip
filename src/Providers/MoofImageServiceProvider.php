@@ -3,6 +3,7 @@
 namespace DeanHowe\Laravel\Moof\Providers;
 
 use DeanHowe\Laravel\Moof\Console\Commands\MoofImageProcessCommand;
+use Illuminate\Cache\CacheManager;
 use Illuminate\Foundation\Console\AboutCommand;
 use Illuminate\Support\ServiceProvider;
 
@@ -27,6 +28,7 @@ class MoofImageServiceProvider extends ServiceProvider
                 // MoofMoofDeveloperCommand::class,
             ]);
         }
+
 
     }
 

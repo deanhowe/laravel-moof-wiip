@@ -1,0 +1,27 @@
+---
+id: laravel-moof-wiip
+name: "laravel-moof-wiip"
+parent: /Users/deanhowe/PROJECTS/HERD/PACKAGES
+status: experiment
+role: package
+owner: deanhowe
+# mission:
+languages:
+  - PHP
+  - JavaScript
+frameworks:
+  - Livewire
+infra:
+  # none detected
+# env: (no .env found)
+git_remote: git@github.com:deanhowe/laravel-moof-wiip.git
+last_commit: 2026-02-22
+license: MIT
+legacy_marker: .kiroNexus
+updated: 2026-08-24
+---
+
+# laravel-moof-wiip
+
+## TODO
+- [ ] Document purpose

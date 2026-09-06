@@ -1,7 +1,7 @@
 {
     "name": "moof/wiip",
-    "description": "Moof MOOF 🐄 (Massively OTT Opinionated Fåm∑w∑rkʐ) enhancer for Laravel 🐮. WiiP (Work in iternal Progress)",
-    "version": "0.0.64",
+    "description": "Moof MOOF \ud83d\udc04 (Massively OTT Opinionated F\u00e5m\u2211w\u2211rk\u0290) enhancer for Laravel \ud83d\udc2e. WiiP (Work in iternal Progress)",
+    "version": "0.0.65",
     "type": "library",
     "keywords": [
         "subdomains",
@@ -58,14 +58,14 @@
         "blade-ui-kit/blade-heroicons": "^2.6.0",
         "blade-ui-kit/blade-icons": "^1.8.0",
         "calebporzio/sushi": "^2.5",
-        "deanhowe/moof-folio-markdown": "0.0.2",
-        "deanhowe/moof-laravel-bot-bus": "0.2.3",
+        "deanhowe/moof-folio-markdown": "0.0.3",
+        "deanhowe/moof-laravel-bot-bus": "^1.7.0",
         "deanhowe/moof-laravel-pulse-packages": "0.0.1",
         "elegantly/laravel-money": "^2.3",
         "guzzlehttp/guzzle": "^7.9.3",
-        "ijpatricio/mingle": "^v0.0.21",
-        "laravel/cashier": "^15.6.4",
-        "laravel/framework": "^v12.13.0",
+        "ijpatricio/mingle": "^v0.0.21|^v0.0.22",
+        "laravel/cashier": "^15.6.4|^16.8.0",
+        "laravel/framework": "^13.0",
         "livewire/livewire": "^3.7",
         "laravel/horizon": ">=5.31.2",
         "laravel/jetstream": "^5.3.6",
@@ -77,11 +77,10 @@
         "laravel/sanctum": "^4.1.1",
         "laravel/slack-notification-channel": "^3.5.0",
         "laravel/socialite": "^5.20.0",
-        "laravel/tinker": "^2.10.1",
-        "livewire/livewire": "^3.6.3",
+        "laravel/tinker": "^2.10.1|^3.0.0",
         "livewire/volt": "^1.7.1",
-        "openai-php/client": "^v0.12.0",
-        "openai-php/laravel": "^v0.12.0 ",
+        "openai-php/client": "^v0.20.0",
+        "openai-php/laravel": "^v0.20.0",
         "propaganistas/laravel-phone": "^6.0.1",
         "pusher/pusher-php-server": "^7.2.7",
         "smalot/pdfparser": "^2.12",
@@ -98,10 +97,9 @@
         "spatie/shiki-php": "^2.3.2",
         "spatie/yaml-front-matter": "^2.1",
         "stevebauman/purify": "^v6.3.0",
-        "genealabs/laravel-caffeine": "^12.0.3"
+        "genealabs/laravel-caffeine": "^12.0.3|^13.0.0"
     },
-    "require-dormant": {
-    },
+    "require-dormant": {},
     "require-dev": {
         "fakerphp/faker": "^v1.24.1",
         "laravel/browser-kit-testing": ">=7.2.4",
@@ -111,19 +109,19 @@
         "mockery/mockery": "^1.6.12",
         "nunomaduro/collision": "^8.8.0",
         "larastan/larastan": ">=3.4.0",
-        "orchestra/testbench": "^v10.2.2",
-        "orchestra/testbench-browser-kit": "^v10.1.0",
-        "orchestra/testbench-dusk": "^v10.2.2",
-        "pestphp/pest": "^3.8.2",
-        "pestphp/pest-plugin-laravel": "^v3.2.0",
-        "pestphp/pest-plugin-type-coverage": "^v3.5.1",
+        "orchestra/testbench": "^11.0",
+        "orchestra/testbench-browser-kit": "^v10.1.0|^11.0",
+        "orchestra/testbench-dusk": "^v10.2.2|^11.4",
+        "pestphp/pest": "^5.0.1",
+        "pestphp/pest-plugin-laravel": "^5.0.1",
+        "pestphp/pest-plugin-type-coverage": "^v3.5.1|^5.0.2",
         "phpcompatibility/php-compatibility": "^9.3.5",
         "spatie/laravel-ignition": "^2.9.1",
-        "infection/infection": "^0.29.14",
-        "roave/security-advisories": "dev-latest",
+        "infection/infection": "^0.29.14|^0.35.4",
         "squizlabs/php_codesniffer": "^3.12.2",
         "slevomat/coding-standard": "^8.18.0",
-        "friendsofphp/php-cs-fixer": "^v3.75.0"
+        "friendsofphp/php-cs-fixer": "^v3.75.0",
+        "roave/security-advisories": "dev-latest"
     },
     "conflict": {
         "phpunit/phpunit": "<10.0.0"
@@ -241,7 +239,9 @@
                 "DeanHowe\\Laravel\\Moof\\Providers\\ThemeServiceProvider",
                 "DeanHowe\\Laravel\\Moof\\Providers\\MoofMarkdownServiceProvider"
             ],
-            "dont-discover": ["*"]
+            "dont-discover": [
+                "*"
+            ]
         }
     },
     "minimum-stability": "dev",
@@ -260,12 +260,12 @@
             "url": "https://github.com/deanhowe/moof-moof"
         },
         "moof-laravel-block-bots": {
-            "type": "vcs",
-            "url": "https://github.com/deanhowe/moof-laravel-block-bots"
+            "type": "path",
+            "url": "../moof-laravel-block-bots"
         },
         "moof-folio-markdown": {
-            "type": "vcs",
-            "url": "https://github.com/deanhowe/moof-folio-markdown.git"
+            "type": "path",
+            "url": "../moof-folio-markdown"
         },
         "moof-laravel-pulse-packages": {
             "type": "vcs",

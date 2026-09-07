@@ -1,7 +1,7 @@
 {
     "name": "moof/wiip",
     "description": "Moof MOOF \ud83d\udc04 (Massively OTT Opinionated F\u00e5m\u2211w\u2211rk\u0290) enhancer for Laravel \ud83d\udc2e. WiiP (Work in iternal Progress)",
-    "version": "0.0.65",
+    "version": "0.0.66",
     "type": "library",
     "keywords": [
         "subdomains",

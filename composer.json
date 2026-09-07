@@ -260,12 +260,12 @@
             "url": "https://github.com/deanhowe/moof-moof"
         },
         "moof-laravel-block-bots": {
-            "type": "path",
-            "url": "../moof-laravel-block-bots"
+            "type": "vcs",
+            "url": "https://github.com/deanhowe/moof-laravel-block-bots"
         },
         "moof-folio-markdown": {
-            "type": "path",
-            "url": "../moof-folio-markdown"
+            "type": "vcs",
+            "url": "https://github.com/deanhowe/moof-folio-markdown.git"
         },
         "moof-laravel-pulse-packages": {
             "type": "vcs",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eb06964170ff8456aeb5081888d8435a",
+    "content-hash": "bca40b3a09464004f75c51cf95e1da68",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -393,15 +393,14 @@
             "name": "composer/ca-bundle",
             "version": "1.5.14",
             "source": {
-                "type": "git",
-                "url": "https://github.com/composer/ca-bundle.git",
-                "reference": "0c8abba0634f637bd78c4e451981da368d403463"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/ca-bundle/zipball/0c8abba0634f637bd78c4e451981da368d403463",
-                "reference": "0c8abba0634f637bd78c4e451981da368d403463",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/composer%2Fca-bundle/1.5.14/composer-ca-bundle.1.5.14.zip",
+                "shasum": "26a5bb07e61bb3032002f9355fa6de9f17bb463d"
             },
             "require": {
                 "ext-openssl": "*",
@@ -425,7 +424,11 @@
                     "Composer\\CaBundle\\": "src"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Composer\\CaBundle\\": "tests"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -444,22 +447,7 @@
                 "ssl",
                 "tls"
             ],
-            "support": {
-                "irc": "irc://irc.freenode.org/composer",
-                "issues": "https://github.com/composer/ca-bundle/issues",
-                "source": "https://github.com/composer/ca-bundle/tree/1.5.14"
-            },
-            "funding": [
-                {
-                    "url": "https://packagist.com",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/composer",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-08-21T14:57:29+00:00"
+            "time": "2026-09-07T00:35:35+01:00"
         },
         {
             "name": "dasprid/enum",
@@ -512,10 +500,16 @@
         {
             "name": "deanhowe/moof-folio-markdown",
             "version": "0.0.3",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:deanhowe/moof-folio-markdown.git",
+                "reference": "6838a451d00f46aa2a933a8790a4c552c7931430"
+            },
             "dist": {
-                "type": "path",
-                "url": "../moof-folio-markdown",
-                "reference": "8403c35f52a32b8c3a00d71afbf19d4bcabe083b"
+                "type": "zip",
+                "url": "https://api.github.com/repos/deanhowe/moof-folio-markdown/zipball/6838a451d00f46aa2a933a8790a4c552c7931430",
+                "reference": "6838a451d00f46aa2a933a8790a4c552c7931430",
+                "shasum": ""
             },
             "require": {
                 "embed/embed": "^4.4.17",
@@ -535,7 +529,6 @@
                 "spatie/image": "^3.8.5",
                 "spatie/laravel-data": "^4.17.0",
                 "spatie/laravel-markdown": "^2.7.1",
-                "spatie/once": "^3.1",
                 "spatie/shiki-php": ">=2.3.2",
                 "spatie/yaml-front-matter": "^2.1.0",
                 "stevebauman/purify": "^6.3.1"
@@ -671,17 +664,25 @@
                 "markdown",
                 "routing"
             ],
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/deanhowe/moof-folio-markdown/tree/0.0.3",
+                "issues": "https://github.com/deanhowe/moof-folio-markdown/issues"
+            },
+            "time": "2026-09-07T06:21:38+00:00"
         },
         {
             "name": "deanhowe/moof-laravel-bot-bus",
             "version": "1.7.0",
-            "dist": {
-                "type": "path",
-                "url": "../moof-laravel-block-bots",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:deanhowe/moof-laravel-block-bots.git",
                 "reference": "9bf61c5ef2638ab905085a41c8eb6a0e3da92aa0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/deanhowe/moof-laravel-block-bots/zipball/9bf61c5ef2638ab905085a41c8eb6a0e3da92aa0",
+                "reference": "9bf61c5ef2638ab905085a41c8eb6a0e3da92aa0",
+                "shasum": ""
             },
             "require": {
                 "ext-json": "*",
@@ -728,9 +729,11 @@
                 }
             ],
             "description": "Block bots and high traffic offenders using Redis",
-            "transport-options": {
-                "relative": true
-            }
+            "support": {
+                "source": "https://github.com/deanhowe/moof-laravel-block-bots/tree/1.7.0",
+                "issues": "https://github.com/deanhowe/moof-laravel-block-bots/issues"
+            },
+            "time": "2026-09-06T23:09:38+00:00"
         },
         {
             "name": "deanhowe/moof-laravel-pulse-packages",
@@ -1553,15 +1556,14 @@
             "name": "genealabs/laravel-caffeine",
             "version": "13.0.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/mikebronner/laravel-caffeine.git",
-                "reference": "f1549e6c86849a3f0efc20b61c3a8dff24752039"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mikebronner/laravel-caffeine/zipball/f1549e6c86849a3f0efc20b61c3a8dff24752039",
-                "reference": "f1549e6c86849a3f0efc20b61c3a8dff24752039",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/genealabs%2Flaravel-caffeine/13.0.0/genealabs-laravel-caffeine.13.0.0.zip",
+                "shasum": "a93443c4b354f002f620221293fe3fca2b289a07"
             },
             "require": {
                 "illuminate/routing": "^11.0|^12.0|^13.0",
@@ -1585,7 +1587,11 @@
                     "GeneaLabs\\LaravelCaffeine\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "GeneaLabs\\LaravelCaffeine\\Tests\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -1596,17 +1602,7 @@
                 }
             ],
             "description": "Keeping Your Laravel Forms Awake",
-            "support": {
-                "issues": "https://github.com/mikebronner/laravel-caffeine/issues",
-                "source": "https://github.com/mikebronner/laravel-caffeine/tree/13.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/mikebronner",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-03-01T17:29:50+00:00"
+            "time": "2026-09-07T00:36:06+01:00"
         },
         {
             "name": "giberti/commonmark-emoji-extension",
@@ -2226,15 +2222,14 @@
             "name": "ijpatricio/mingle",
             "version": "v0.0.22",
             "source": {
-                "type": "git",
-                "url": "https://github.com/ijpatricio/mingle.git",
-                "reference": "b6fa9d76ba07a5154e5fc70191b4dd3903660242"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ijpatricio/mingle/zipball/b6fa9d76ba07a5154e5fc70191b4dd3903660242",
-                "reference": "b6fa9d76ba07a5154e5fc70191b4dd3903660242",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/ijpatricio%2Fmingle/v0.0.22/ijpatricio-mingle.v0.0.22.zip",
+                "shasum": "f3972ff519b094752393a21b3b93367052cbc748"
             },
             "require": {
                 "illuminate/contracts": "^10.0||^11.0||^12.0||^13.0",
@@ -2268,15 +2263,19 @@
                     "Ijpatricio\\Mingle\\Database\\Factories\\": "database/factories/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Ijpatricio\\Mingle\\Tests\\": "tests/",
+                    "Workbench\\App\\": "workbench/app/"
+                }
+            },
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Joao Patricio",
-                    "email": "ijpatricio@gmail.com",
-                    "role": "Developer"
+                    "email": "ijpatricio@gmail.com"
                 }
             ],
             "description": "Use Vue and React in Laravel Livewire Applications.",
@@ -2287,31 +2286,20 @@
                 "react",
                 "vue"
             ],
-            "support": {
-                "issues": "https://github.com/ijpatricio/mingle/issues",
-                "source": "https://github.com/ijpatricio/mingle/tree/v0.0.22"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/ijpatricio",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-03-25T19:39:02+00:00"
+            "time": "2026-09-07T00:35:34+01:00"
         },
         {
             "name": "illuminate/auth",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/auth.git",
-                "reference": "ddff5ff3437e7e13566b7abb86ffaa0e8c59bf3d"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/auth/zipball/ddff5ff3437e7e13566b7abb86ffaa0e8c59bf3d",
-                "reference": "ddff5ff3437e7e13566b7abb86ffaa0e8c59bf3d",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fauth/v13.30.1/illuminate-auth.v13.30.1.zip",
+                "shasum": "2ce2ca7d50d93c06b7c06298f15ada67957afa06"
             },
             "require": {
                 "ext-hash": "*",
@@ -2339,7 +2327,6 @@
                     "Illuminate\\Auth\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2351,25 +2338,20 @@
             ],
             "description": "The Illuminate Auth package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-09-01T21:40:36+00:00"
+            "time": "2026-09-07T00:36:06+01:00"
         },
         {
             "name": "illuminate/broadcasting",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/broadcasting.git",
-                "reference": "1e89124871c24f55e2201d6d44bb007208ad1785"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/broadcasting/zipball/1e89124871c24f55e2201d6d44bb007208ad1785",
-                "reference": "1e89124871c24f55e2201d6d44bb007208ad1785",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fbroadcasting/v13.30.1/illuminate-broadcasting.v13.30.1.zip",
+                "shasum": "d2bba2a7b7f52147677edcd77b414a139c16bba1"
             },
             "require": {
                 "illuminate/bus": "^13.0",
@@ -2398,7 +2380,6 @@
                     "Illuminate\\Broadcasting\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2410,25 +2391,20 @@
             ],
             "description": "The Illuminate Broadcasting package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-10T17:21:54+00:00"
+            "time": "2026-09-07T00:36:06+01:00"
         },
         {
             "name": "illuminate/bus",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/bus.git",
-                "reference": "c42e2bba841b5ba00c44357d7dbd0afb9830ce09"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/bus/zipball/c42e2bba841b5ba00c44357d7dbd0afb9830ce09",
-                "reference": "c42e2bba841b5ba00c44357d7dbd0afb9830ce09",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fbus/v13.30.1/illuminate-bus.v13.30.1.zip",
+                "shasum": "5a5e3769d556e7d196164097091d7c89cecc54bb"
             },
             "require": {
                 "illuminate/collections": "^13.0",
@@ -2452,7 +2428,6 @@
                     "Illuminate\\Bus\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2464,25 +2439,20 @@
             ],
             "description": "The Illuminate Bus package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-23T08:11:47+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "illuminate/cache",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/cache.git",
-                "reference": "2505e49447e1816765fbce334ce3035f4ab1f356"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/cache/zipball/2505e49447e1816765fbce334ce3035f4ab1f356",
-                "reference": "2505e49447e1816765fbce334ce3035f4ab1f356",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fcache/v13.30.1/illuminate-cache.v13.30.1.zip",
+                "shasum": "f3ff3cafb0dc224f6bebf5dd5768280c6c10566e"
             },
             "require": {
                 "illuminate/collections": "^13.0",
@@ -2514,7 +2484,6 @@
                     "Illuminate\\Cache\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2526,25 +2495,20 @@
             ],
             "description": "The Illuminate Cache package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-09-01T21:32:40+00:00"
+            "time": "2026-09-07T00:35:34+01:00"
         },
         {
             "name": "illuminate/collections",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/collections.git",
-                "reference": "09fbf9c4441d1164b6178ad2f398d7e309450597"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/collections/zipball/09fbf9c4441d1164b6178ad2f398d7e309450597",
-                "reference": "09fbf9c4441d1164b6178ad2f398d7e309450597",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fcollections/v13.30.1/illuminate-collections.v13.30.1.zip",
+                "shasum": "45b19274aee9dcbd2b246502beaafb027ea72a10"
             },
             "require": {
                 "illuminate/conditionable": "^13.0",
@@ -2574,7 +2538,6 @@
                     "Illuminate\\Support\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2586,25 +2549,20 @@
             ],
             "description": "The Illuminate Collections package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-28T14:38:21+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "illuminate/conditionable",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/conditionable.git",
-                "reference": "7f1ef52d9a346f829421b296adfb7644a951b216"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/conditionable/zipball/7f1ef52d9a346f829421b296adfb7644a951b216",
-                "reference": "7f1ef52d9a346f829421b296adfb7644a951b216",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fconditionable/v13.30.1/illuminate-conditionable.v13.30.1.zip",
+                "shasum": "cb9e43090c400aaf84cfdffcd391a2702a3f6392"
             },
             "require": {
                 "php": "^8.3"
@@ -2620,7 +2578,6 @@
                     "Illuminate\\Support\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2632,25 +2589,20 @@
             ],
             "description": "The Illuminate Conditionable package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-02-25T16:07:55+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "illuminate/config",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/config.git",
-                "reference": "0f330bc9669970d2db776816ab80211ed1c18509"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/config/zipball/0f330bc9669970d2db776816ab80211ed1c18509",
-                "reference": "0f330bc9669970d2db776816ab80211ed1c18509",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fconfig/v13.30.1/illuminate-config.v13.30.1.zip",
+                "shasum": "9e75833c4caea1105fe21eaefce600c939219156"
             },
             "require": {
                 "illuminate/collections": "^13.0",
@@ -2668,7 +2620,6 @@
                     "Illuminate\\Config\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2680,25 +2631,20 @@
             ],
             "description": "The Illuminate Config package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-06-25T18:32:48+00:00"
+            "time": "2026-09-07T00:36:05+01:00"
         },
         {
             "name": "illuminate/console",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/console.git",
-                "reference": "2068a5d36101ea6a704c753a864ac7613f404730"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/console/zipball/2068a5d36101ea6a704c753a864ac7613f404730",
-                "reference": "2068a5d36101ea6a704c753a864ac7613f404730",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fconsole/v13.30.1/illuminate-console.v13.30.1.zip",
+                "shasum": "d931084b62a84fd544522d92800ea4e0d2f87b41"
             },
             "require": {
                 "ext-mbstring": "*",
@@ -2735,7 +2681,6 @@
                     "Illuminate\\Console\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2747,25 +2692,20 @@
             ],
             "description": "The Illuminate Console package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-14T16:00:57+00:00"
+            "time": "2026-09-07T00:35:34+01:00"
         },
         {
             "name": "illuminate/container",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/container.git",
-                "reference": "03e0a0cb51d438ea22136f084f77398c9aad7bad"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/container/zipball/03e0a0cb51d438ea22136f084f77398c9aad7bad",
-                "reference": "03e0a0cb51d438ea22136f084f77398c9aad7bad",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fcontainer/v13.30.1/illuminate-container.v13.30.1.zip",
+                "shasum": "3aaee30fd06b18d1cbcecc47137b04934b527756"
             },
             "require": {
                 "illuminate/contracts": "^13.0",
@@ -2797,7 +2737,6 @@
                     "Illuminate\\Container\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2809,25 +2748,20 @@
             ],
             "description": "The Illuminate Container package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-31T13:50:11+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "illuminate/contracts",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/contracts.git",
-                "reference": "52fd3118b71254dd083eca6acba39b3f7325ec9a"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/contracts/zipball/52fd3118b71254dd083eca6acba39b3f7325ec9a",
-                "reference": "52fd3118b71254dd083eca6acba39b3f7325ec9a",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fcontracts/v13.30.1/illuminate-contracts.v13.30.1.zip",
+                "shasum": "e1a0b38880d07cff21ee74220bfb98ca9ae07311"
             },
             "require": {
                 "php": "^8.3",
@@ -2845,7 +2779,6 @@
                     "Illuminate\\Contracts\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2857,25 +2790,20 @@
             ],
             "description": "The Illuminate Contracts package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-10T17:21:54+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "illuminate/database",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/database.git",
-                "reference": "78be392dca4f74863293bb58a06f05d9eb56bab6"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/database/zipball/78be392dca4f74863293bb58a06f05d9eb56bab6",
-                "reference": "78be392dca4f74863293bb58a06f05d9eb56bab6",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fdatabase/v13.30.1/illuminate-database.v13.30.1.zip",
+                "shasum": "6c2a583fa02939147cd5a51aea9d0c815c586eb2"
             },
             "require": {
                 "brick/math": "^0.14.2 || ^0.15 || ^0.16 || ^0.17 || ^0.18 || ^0.19",
@@ -2913,7 +2841,6 @@
                     "Illuminate\\Database\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2931,25 +2858,20 @@
                 "orm",
                 "sql"
             ],
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-09-01T21:26:53+00:00"
+            "time": "2026-09-07T00:35:34+01:00"
         },
         {
             "name": "illuminate/events",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/events.git",
-                "reference": "f1c94930eb75b7aa5206eda4e0c89a22166006a6"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/events/zipball/f1c94930eb75b7aa5206eda4e0c89a22166006a6",
-                "reference": "f1c94930eb75b7aa5206eda4e0c89a22166006a6",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fevents/v13.30.1/illuminate-events.v13.30.1.zip",
+                "shasum": "5587047bbd851d263c89322ce44062b30177671c"
             },
             "require": {
                 "illuminate/bus": "^13.0",
@@ -2975,7 +2897,6 @@
                     "Illuminate\\Events\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2987,25 +2908,20 @@
             ],
             "description": "The Illuminate Events package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-13T15:21:29+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "illuminate/filesystem",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/filesystem.git",
-                "reference": "d8cc050541e2b13e2eba3c6937f54f395f7193cc"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/filesystem/zipball/d8cc050541e2b13e2eba3c6937f54f395f7193cc",
-                "reference": "d8cc050541e2b13e2eba3c6937f54f395f7193cc",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Ffilesystem/v13.30.1/illuminate-filesystem.v13.30.1.zip",
+                "shasum": "28b716df3826a8e6b398cd6671bdd437565829b0"
             },
             "require": {
                 "illuminate/collections": "^13.0",
@@ -3044,7 +2960,6 @@
                     "Illuminate\\Filesystem\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3056,25 +2971,20 @@
             ],
             "description": "The Illuminate Filesystem package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-31T13:52:34+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "illuminate/http",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/http.git",
-                "reference": "c7b63b506c8014e7f3716f045059e8acf4c7b162"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/http/zipball/c7b63b506c8014e7f3716f045059e8acf4c7b162",
-                "reference": "c7b63b506c8014e7f3716f045059e8acf4c7b162",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fhttp/v13.30.1/illuminate-http.v13.30.1.zip",
+                "shasum": "9bc0af28b2ad040154e33f776792303b856d02ec"
             },
             "require": {
                 "ext-filter": "*",
@@ -3110,7 +3020,6 @@
                     "Illuminate\\Http\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3122,25 +3031,20 @@
             ],
             "description": "The Illuminate Http package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-09-01T02:41:52+00:00"
+            "time": "2026-09-07T00:35:34+01:00"
         },
         {
             "name": "illuminate/log",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/log.git",
-                "reference": "a41519b859dd7fa97de14fa5e6587fe8ba4f42fd"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/log/zipball/a41519b859dd7fa97de14fa5e6587fe8ba4f42fd",
-                "reference": "a41519b859dd7fa97de14fa5e6587fe8ba4f42fd",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Flog/v13.30.1/illuminate-log.v13.30.1.zip",
+                "shasum": "d0cdd66eafd65e546d8c655d2b804e86e2333faa"
             },
             "require": {
                 "illuminate/conditionable": "^13.0",
@@ -3164,7 +3068,6 @@
                     "Illuminate\\Log\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3176,25 +3079,20 @@
             ],
             "description": "The Illuminate Log package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-04T14:02:13+00:00"
+            "time": "2026-09-07T00:36:07+01:00"
         },
         {
             "name": "illuminate/macroable",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/macroable.git",
-                "reference": "59b5b5f3cf290a91db8cf6cd3d35ff56978bc057"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/macroable/zipball/59b5b5f3cf290a91db8cf6cd3d35ff56978bc057",
-                "reference": "59b5b5f3cf290a91db8cf6cd3d35ff56978bc057",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fmacroable/v13.30.1/illuminate-macroable.v13.30.1.zip",
+                "shasum": "f682d6d97418ecfbf1d2ec504978485285272365"
             },
             "require": {
                 "php": "^8.2"
@@ -3210,7 +3108,6 @@
                     "Illuminate\\Support\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3222,25 +3119,20 @@
             ],
             "description": "The Illuminate Macroable package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-04-29T09:35:06+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "illuminate/mail",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/mail.git",
-                "reference": "df2267b8991b50a214f5b0371716114d0b8ef21c"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/mail/zipball/df2267b8991b50a214f5b0371716114d0b8ef21c",
-                "reference": "df2267b8991b50a214f5b0371716114d0b8ef21c",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fmail/v13.30.1/illuminate-mail.v13.30.1.zip",
+                "shasum": "c65e6e7e4367dfc425a721dc7bbe1412e05d5572"
             },
             "require": {
                 "illuminate/collections": "^13.0",
@@ -3274,7 +3166,6 @@
                     "Illuminate\\Mail\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3286,25 +3177,20 @@
             ],
             "description": "The Illuminate Mail package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-10T00:02:58+00:00"
+            "time": "2026-09-07T00:36:06+01:00"
         },
         {
             "name": "illuminate/notifications",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/notifications.git",
-                "reference": "4fdf7a24661a1fc041bae613a6bb143cde3b34f9"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/notifications/zipball/4fdf7a24661a1fc041bae613a6bb143cde3b34f9",
-                "reference": "4fdf7a24661a1fc041bae613a6bb143cde3b34f9",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fnotifications/v13.30.1/illuminate-notifications.v13.30.1.zip",
+                "shasum": "13831b31c9bd8449186c250e583be606ab9d293e"
             },
             "require": {
                 "illuminate/broadcasting": "^13.0",
@@ -3333,7 +3219,6 @@
                     "Illuminate\\Notifications\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3345,25 +3230,20 @@
             ],
             "description": "The Illuminate Notifications package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-25T15:04:24+00:00"
+            "time": "2026-09-07T00:36:07+01:00"
         },
         {
             "name": "illuminate/pagination",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/pagination.git",
-                "reference": "0847cb3408d2ac92b96793e6e308a90973cb7fd2"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/pagination/zipball/0847cb3408d2ac92b96793e6e308a90973cb7fd2",
-                "reference": "0847cb3408d2ac92b96793e6e308a90973cb7fd2",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fpagination/v13.30.1/illuminate-pagination.v13.30.1.zip",
+                "shasum": "a2eabc11e0e8cfc81d2c235d78d5d83e9dd4c64c"
             },
             "require": {
                 "ext-filter": "*",
@@ -3383,7 +3263,6 @@
                     "Illuminate\\Pagination\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3395,25 +3274,20 @@
             ],
             "description": "The Illuminate Pagination package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-02T20:48:08+00:00"
+            "time": "2026-09-07T00:36:07+01:00"
         },
         {
             "name": "illuminate/pipeline",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/pipeline.git",
-                "reference": "9ee04593b932a6d7dca255e3217584b896621b99"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/pipeline/zipball/9ee04593b932a6d7dca255e3217584b896621b99",
-                "reference": "9ee04593b932a6d7dca255e3217584b896621b99",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fpipeline/v13.30.1/illuminate-pipeline.v13.30.1.zip",
+                "shasum": "35dd9c88c100eaab308cf194b95d4082c1c9f840"
             },
             "require": {
                 "illuminate/conditionable": "^13.0",
@@ -3436,7 +3310,6 @@
                     "Illuminate\\Pipeline\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3448,25 +3321,20 @@
             ],
             "description": "The Illuminate Pipeline package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-04T14:02:13+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "illuminate/queue",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/queue.git",
-                "reference": "216c512616e24c3db4b93d09152f40f65db18381"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/queue/zipball/216c512616e24c3db4b93d09152f40f65db18381",
-                "reference": "216c512616e24c3db4b93d09152f40f65db18381",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fqueue/v13.30.1/illuminate-queue.v13.30.1.zip",
+                "shasum": "31c3e9e5bb5c2d3f5c685240202df25418d878d2"
             },
             "require": {
                 "illuminate/collections": "^13.0",
@@ -3504,7 +3372,6 @@
                     "Illuminate\\Queue\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3516,25 +3383,20 @@
             ],
             "description": "The Illuminate Queue package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-09-01T16:38:28+00:00"
+            "time": "2026-09-07T00:36:05+01:00"
         },
         {
             "name": "illuminate/redis",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/redis.git",
-                "reference": "2c2b5406a49e6c46e11571b437e0b5e8b4afc139"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/redis/zipball/2c2b5406a49e6c46e11571b437e0b5e8b4afc139",
-                "reference": "2c2b5406a49e6c46e11571b437e0b5e8b4afc139",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fredis/v13.30.1/illuminate-redis.v13.30.1.zip",
+                "shasum": "836f5f62e3ad2005a763e2fa16d6c0762e35c753"
             },
             "require": {
                 "illuminate/collections": "^13.0",
@@ -3558,7 +3420,6 @@
                     "Illuminate\\Redis\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3570,25 +3431,20 @@
             ],
             "description": "The Illuminate Redis package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-21T09:55:59+00:00"
+            "time": "2026-09-07T00:36:05+01:00"
         },
         {
             "name": "illuminate/reflection",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/reflection.git",
-                "reference": "2b6ba33970dd84849322a6a9857647ca96c1bb66"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/reflection/zipball/2b6ba33970dd84849322a6a9857647ca96c1bb66",
-                "reference": "2b6ba33970dd84849322a6a9857647ca96c1bb66",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Freflection/v13.30.1/illuminate-reflection.v13.30.1.zip",
+                "shasum": "a226db79cbe66dd02337c7bedffa24bf4ac2dbdd"
             },
             "require": {
                 "illuminate/collections": "^13.0",
@@ -3609,7 +3465,6 @@
                     "Illuminate\\Support\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3621,25 +3476,20 @@
             ],
             "description": "The Illuminate Reflection package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-03T17:56:24+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "illuminate/routing",
             "version": "v13.30.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/routing.git",
-                "reference": "4f8f0d28987361b8b814f712c1a40d2b2e07e21f"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/routing/zipball/4f8f0d28987361b8b814f712c1a40d2b2e07e21f",
-                "reference": "4f8f0d28987361b8b814f712c1a40d2b2e07e21f",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Frouting/v13.30.0/illuminate-routing.v13.30.0.zip",
+                "shasum": "34679b74d4ea22c34cb21e01bd3c0450159e892b"
             },
             "require": {
                 "ext-filter": "*",
@@ -3677,7 +3527,6 @@
                     "Illuminate\\Routing\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3689,25 +3538,20 @@
             ],
             "description": "The Illuminate Routing package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-23T07:54:41+00:00"
+            "time": "2026-09-07T00:35:34+01:00"
         },
         {
             "name": "illuminate/session",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/session.git",
-                "reference": "8d5621c2438dad4b2fc8ed8f9143af476434afc5"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/session/zipball/8d5621c2438dad4b2fc8ed8f9143af476434afc5",
-                "reference": "8d5621c2438dad4b2fc8ed8f9143af476434afc5",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fsession/v13.30.1/illuminate-session.v13.30.1.zip",
+                "shasum": "8a279abbb1914c905488e09f0f0466b766fcf5d9"
             },
             "require": {
                 "ext-ctype": "*",
@@ -3734,7 +3578,6 @@
                     "Illuminate\\Session\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3746,25 +3589,20 @@
             ],
             "description": "The Illuminate Session package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-10T00:02:58+00:00"
+            "time": "2026-09-07T00:35:34+01:00"
         },
         {
             "name": "illuminate/support",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/support.git",
-                "reference": "4eb770b5997127f54c24e297d1202a6200969f51"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/support/zipball/4eb770b5997127f54c24e297d1202a6200969f51",
-                "reference": "4eb770b5997127f54c24e297d1202a6200969f51",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fsupport/v13.30.1/illuminate-support.v13.30.1.zip",
+                "shasum": "f30ce455c2af8dbff4223603b69dfa6e465c7b32"
             },
             "require": {
                 "doctrine/inflector": "^2.0",
@@ -3780,12 +3618,6 @@
                 "php": "^8.3",
                 "symfony/polyfill-php85": "^1.36",
                 "voku/portable-ascii": "^2.0.2"
-            },
-            "conflict": {
-                "tightenco/collect": "<5.5.33"
-            },
-            "replace": {
-                "spatie/once": "*"
             },
             "suggest": {
                 "illuminate/filesystem": "Required to use the Composer class (^13.0).",
@@ -3813,7 +3645,6 @@
                     "Illuminate\\Support\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3825,25 +3656,20 @@
             ],
             "description": "The Illuminate Support package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-31T13:53:09+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "illuminate/translation",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/translation.git",
-                "reference": "c20c609bf7fb930d0118c88d92317a29584052d9"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/translation/zipball/c20c609bf7fb930d0118c88d92317a29584052d9",
-                "reference": "c20c609bf7fb930d0118c88d92317a29584052d9",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Ftranslation/v13.30.1/illuminate-translation.v13.30.1.zip",
+                "shasum": "de024c5fd0a1ad96a0cca7f1b0b25a9cc180949f"
             },
             "require": {
                 "illuminate/collections": "^13.0",
@@ -3865,7 +3691,6 @@
                     "Illuminate\\Translation\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3877,25 +3702,20 @@
             ],
             "description": "The Illuminate Translation package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-02T20:32:36+00:00"
+            "time": "2026-09-07T00:36:05+01:00"
         },
         {
             "name": "illuminate/validation",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/validation.git",
-                "reference": "44d9cb6b6f29a0bbeab1b71799703b6841f5f186"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/validation/zipball/44d9cb6b6f29a0bbeab1b71799703b6841f5f186",
-                "reference": "44d9cb6b6f29a0bbeab1b71799703b6841f5f186",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fvalidation/v13.30.1/illuminate-validation.v13.30.1.zip",
+                "shasum": "bdad267861b63cda1ec0c739e83ae4a10d52abf8"
             },
             "require": {
                 "brick/math": "^0.14.2 || ^0.15 || ^0.16 || ^0.17 || ^0.18 || ^0.19",
@@ -3928,7 +3748,6 @@
                     "Illuminate\\Validation\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3940,25 +3759,20 @@
             ],
             "description": "The Illuminate Validation package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-09-01T02:41:52+00:00"
+            "time": "2026-09-07T00:36:05+01:00"
         },
         {
             "name": "illuminate/view",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/view.git",
-                "reference": "687f525c6de1878d08cd494757cdc8062fef7f90"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/view/zipball/687f525c6de1878d08cd494757cdc8062fef7f90",
-                "reference": "687f525c6de1878d08cd494757cdc8062fef7f90",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fview/v13.30.1/illuminate-view.v13.30.1.zip",
+                "shasum": "90688288fe9e8e6bd869f6ccce354ae8192c80ee"
             },
             "require": {
                 "ext-tokenizer": "*",
@@ -3984,7 +3798,6 @@
                     "Illuminate\\View\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -3996,11 +3809,7 @@
             ],
             "description": "The Illuminate View package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-04T14:04:36+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "laminas/laminas-diactoros",
@@ -4080,15 +3889,14 @@
             "name": "laravel/cashier",
             "version": "v16.8.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/laravel/cashier-stripe.git",
-                "reference": "3741d81d0e2b7ca8de52c2f9a272d30edfa741b9"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/cashier-stripe/zipball/3741d81d0e2b7ca8de52c2f9a272d30edfa741b9",
-                "reference": "3741d81d0e2b7ca8de52c2f9a272d30edfa741b9",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/laravel%2Fcashier/v16.8.0/laravel-cashier.v16.8.0.zip",
+                "shasum": "5b817130a8d6e9ae291e80a0fe2e02660d2f8bef"
             },
             "require": {
                 "ext-json": "*",
@@ -4124,13 +3932,13 @@
             },
             "type": "library",
             "extra": {
+                "branch-alias": {
+                    "dev-master": "16.x-dev"
+                },
                 "laravel": {
                     "providers": [
                         "Laravel\\Cashier\\CashierServiceProvider"
                     ]
-                },
-                "branch-alias": {
-                    "dev-master": "16.x-dev"
                 }
             },
             "autoload": {
@@ -4139,7 +3947,14 @@
                     "Laravel\\Cashier\\Database\\Factories\\": "database/factories/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "App\\": "workbench/app/",
+                    "Database\\Factories\\": "workbench/database/factories/",
+                    "Database\\Seeders\\": "workbench/database/seeders/",
+                    "Laravel\\Cashier\\Tests\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -4159,11 +3974,7 @@
                 "laravel",
                 "stripe"
             ],
-            "support": {
-                "issues": "https://github.com/laravel/cashier/issues",
-                "source": "https://github.com/laravel/cashier"
-            },
-            "time": "2026-09-01T13:29:00+00:00"
+            "time": "2026-09-07T00:36:07+01:00"
         },
         {
             "name": "laravel/fortify",
@@ -6205,17 +6016,15 @@
         {
             "name": "ml/iri",
             "version": "1.1.4",
-            "target-dir": "ML/IRI",
             "source": {
-                "type": "git",
-                "url": "https://github.com/lanthaler/IRI.git",
-                "reference": "cbd44fa913e00ea624241b38cefaa99da8d71341"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/lanthaler/IRI/zipball/cbd44fa913e00ea624241b38cefaa99da8d71341",
-                "reference": "cbd44fa913e00ea624241b38cefaa99da8d71341",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/ml%2Firi/1.1.4/ml-iri.1.1.4.zip",
+                "shasum": "d7acfef0f23746d18132d8fcdd0b48e71217eafb"
             },
             "require": {
                 "lib-pcre": ">=4.0",
@@ -6227,7 +6036,6 @@
                     "ML\\IRI": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -6235,23 +6043,18 @@
                 {
                     "name": "Markus Lanthaler",
                     "email": "mail@markus-lanthaler.com",
-                    "homepage": "http://www.markus-lanthaler.com",
-                    "role": "Developer"
+                    "homepage": "http://www.markus-lanthaler.com"
                 }
             ],
             "description": "IRI handling for PHP",
             "homepage": "http://www.markus-lanthaler.com",
             "keywords": [
-                "URN",
-                "iri",
-                "uri",
-                "url"
+                "IRI",
+                "URI",
+                "URL",
+                "URN"
             ],
-            "support": {
-                "issues": "https://github.com/lanthaler/IRI/issues",
-                "source": "https://github.com/lanthaler/IRI/tree/master"
-            },
-            "time": "2014-01-21T13:43:39+00:00"
+            "time": "2026-09-07T00:35:35+01:00"
         },
         {
             "name": "ml/json-ld",
@@ -10239,15 +10042,14 @@
             "name": "stripe/stripe-php",
             "version": "v21.3.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/stripe/stripe-php.git",
-                "reference": "12986995cd5e229cc094d4b57de056f8e2e6e5a9"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stripe/stripe-php/zipball/12986995cd5e229cc094d4b57de056f8e2e6e5a9",
-                "reference": "12986995cd5e229cc094d4b57de056f8e2e6e5a9",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/stripe%2Fstripe-php/v21.3.1/stripe-stripe-php.v21.3.1.zip",
+                "shasum": "041294aee5049f246797c44a7d86c4b7bcd562c6"
             },
             "require": {
                 "ext-curl": "*",
@@ -10274,7 +10076,14 @@
                     "Stripe\\": "lib/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Stripe\\": [
+                        "tests/",
+                        "tests/Stripe/"
+                    ]
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -10291,11 +10100,7 @@
                 "payment processing",
                 "stripe"
             ],
-            "support": {
-                "issues": "https://github.com/stripe/stripe-php/issues",
-                "source": "https://github.com/stripe/stripe-php/tree/v21.3.1"
-            },
-            "time": "2026-09-01T18:42:58+00:00"
+            "time": "2026-09-07T00:36:07+01:00"
         },
         {
             "name": "symfony/clock",
@@ -13242,15 +13047,14 @@
             "name": "brianium/paratest",
             "version": "v7.24.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/paratestphp/paratest.git",
-                "reference": "c29bc43a5cdd0124b7eff959064ae83ea902b49a"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paratestphp/paratest/zipball/c29bc43a5cdd0124b7eff959064ae83ea902b49a",
-                "reference": "c29bc43a5cdd0124b7eff959064ae83ea902b49a",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/brianium%2Fparatest/v7.24.1/brianium-paratest.v7.24.1.zip",
+                "shasum": "50ab27d5198e15cf7aca2f9ec764a437a7655437"
             },
             "require": {
                 "ext-dom": "*",
@@ -13291,45 +13095,33 @@
                     ]
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "ParaTest\\Tests\\": "test/"
+                }
+            },
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "Brian Scaturro",
-                    "email": "scaturrob@gmail.com",
-                    "role": "Developer"
+                    "email": "scaturrob@gmail.com"
                 },
                 {
                     "name": "Filippo Tessarotto",
-                    "email": "zoeslam@gmail.com",
-                    "role": "Developer"
+                    "email": "zoeslam@gmail.com"
                 }
             ],
             "description": "Parallel testing for PHP",
             "homepage": "https://github.com/paratestphp/paratest",
             "keywords": [
+                "PHPUnit",
                 "concurrent",
                 "parallel",
-                "phpunit",
                 "testing"
             ],
-            "support": {
-                "issues": "https://github.com/paratestphp/paratest/issues",
-                "source": "https://github.com/paratestphp/paratest/tree/v7.24.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sponsors/Slamdunk",
-                    "type": "github"
-                },
-                {
-                    "url": "https://paypal.me/filippotessarotto",
-                    "type": "paypal"
-                }
-            ],
-            "time": "2026-08-17T06:31:26+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "clue/ndjson-react",
@@ -14221,15 +14013,14 @@
             "name": "illuminate/process",
             "version": "v13.30.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/illuminate/process.git",
-                "reference": "d5ef36aa7447b38a4554f001c4d2eb14f72eaf7a"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/illuminate/process/zipball/d5ef36aa7447b38a4554f001c4d2eb14f72eaf7a",
-                "reference": "d5ef36aa7447b38a4554f001c4d2eb14f72eaf7a",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/illuminate%2Fprocess/v13.30.1/illuminate-process.v13.30.1.zip",
+                "shasum": "65a30658f682cc6a4a3e870e0e47bfad1e251738"
             },
             "require": {
                 "illuminate/collections": "^13.0",
@@ -14251,7 +14042,6 @@
                     "Illuminate\\Process\\": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -14263,11 +14053,7 @@
             ],
             "description": "The Illuminate Process package.",
             "homepage": "https://laravel.com",
-            "support": {
-                "issues": "https://github.com/laravel/framework/issues",
-                "source": "https://github.com/laravel/framework"
-            },
-            "time": "2026-08-21T09:57:42+00:00"
+            "time": "2026-09-07T00:36:06+01:00"
         },
         {
             "name": "infection/abstract-testframework-adapter",
@@ -14374,15 +14160,14 @@
             "name": "infection/include-interceptor",
             "version": "1.0.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/infection/include-interceptor.git",
-                "reference": "c083331bc0cd1cd319ac1b7a08e3ad4a34aa7992"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/include-interceptor/zipball/c083331bc0cd1cd319ac1b7a08e3ad4a34aa7992",
-                "reference": "c083331bc0cd1cd319ac1b7a08e3ad4a34aa7992",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/infection%2Finclude-interceptor/1.0.0/infection-include-interceptor.1.0.0.zip",
+                "shasum": "836599947e4e6b2fc08c89f545570b4864ad5979"
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^2.16",
@@ -14399,7 +14184,11 @@
                     "Infection\\StreamWrapper\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Infection\\Tests\\StreamWrapper\\": "tests/"
+                }
+            },
             "license": [
                 "BSD-3-Clause"
             ],
@@ -14410,35 +14199,20 @@
                 }
             ],
             "description": "Stream Wrapper: Include Interceptor. Allows to replace included (autoloaded) file with another one.",
-            "support": {
-                "issues": "https://github.com/infection/include-interceptor/issues",
-                "source": "https://github.com/infection/include-interceptor/tree/1.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/infection",
-                    "type": "github"
-                },
-                {
-                    "url": "https://opencollective.com/infection",
-                    "type": "open_collective"
-                }
-            ],
-            "time": "2024-05-03T21:48:06+00:00"
+            "time": "2026-09-07T00:36:06+01:00"
         },
         {
             "name": "infection/infection",
             "version": "0.35.4",
             "source": {
-                "type": "git",
-                "url": "https://github.com/infection/infection.git",
-                "reference": "487bf060228e1272c6a9653468b87a4fe29436df"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/infection/infection/zipball/487bf060228e1272c6a9653468b87a4fe29436df",
-                "reference": "487bf060228e1272c6a9653468b87a4fe29436df",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/infection%2Finfection/0.35.4/infection-infection.0.35.4.zip",
+                "shasum": "ac34fa6ccfea3a4e9286b200fdf8cd61d3517ef1"
             },
             "require": {
                 "colinodell/json5": "^3.0",
@@ -14471,11 +14245,6 @@
                 "thecodingmachine/safe": "^v3.0",
                 "webmozart/assert": "^1.11 || ^2.0"
             },
-            "conflict": {
-                "antecedent/patchwork": "<2.1.25",
-                "dg/bypass-finals": "<1.4.1",
-                "marc-mabe/php-enum": "<4.4"
-            },
             "require-dev": {
                 "carthage-software/mago": "^1.20",
                 "ext-simplexml": "*",
@@ -14507,7 +14276,16 @@
                     "Infection\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "classmap": [
+                    "tests/autoloaded"
+                ],
+                "psr-4": {
+                    "Infection\\Benchmark\\": "tests/benchmark",
+                    "Infection\\Tests\\": "tests/phpunit",
+                    "Infection\\Tests\\Architecture\\": "tests/Architecture"
+                }
+            },
             "license": [
                 "BSD-3-Clause"
             ],
@@ -14550,21 +14328,7 @@
                 "testing",
                 "unit testing"
             ],
-            "support": {
-                "issues": "https://github.com/infection/infection/issues",
-                "source": "https://github.com/infection/infection/tree/0.35.4"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/infection",
-                    "type": "github"
-                },
-                {
-                    "url": "https://opencollective.com/infection",
-                    "type": "open_collective"
-                }
-            ],
-            "time": "2026-09-02T13:30:25+00:00"
+            "time": "2026-09-07T00:36:06+01:00"
         },
         {
             "name": "infection/mutator",
@@ -15443,21 +15207,17 @@
             "name": "nunomaduro/pokio",
             "version": "v1.0.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/nunomaduro/pokio.git",
-                "reference": "fc7884ebc5b0fabd6e267c0b4e6f750ba69cee5b"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nunomaduro/pokio/zipball/fc7884ebc5b0fabd6e267c0b4e6f750ba69cee5b",
-                "reference": "fc7884ebc5b0fabd6e267c0b4e6f750ba69cee5b",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/nunomaduro%2Fpokio/v1.0.1/nunomaduro-pokio.v1.0.1.zip",
+                "shasum": "b90a51f8807cc086ff428469a0ea478d17d11649"
             },
             "require": {
                 "php": "^8.3.0"
-            },
-            "conflict": {
-                "symplify/easy-parallel": "<11.2.2"
             },
             "require-dev": {
                 "laravel/pint": "^1.29.0",
@@ -15481,7 +15241,11 @@
                     "Pokio\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -15498,25 +15262,7 @@
                 "php",
                 "pokio"
             ],
-            "support": {
-                "issues": "https://github.com/nunomaduro/pokio/issues",
-                "source": "https://github.com/nunomaduro/pokio/tree/v1.0.1"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.com/paypalme/enunomaduro",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/nunomaduro",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/nunomaduro",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2026-04-12T12:06:31+00:00"
+            "time": "2026-09-07T00:36:08+01:00"
         },
         {
             "name": "ondram/ci-detector",
@@ -15975,15 +15721,14 @@
             "name": "orchestra/testbench-browser-kit",
             "version": "v11.0.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/orchestral/testbench-browser-kit.git",
-                "reference": "54ac3f7bf1471801d8bed6fe5fef755f502809ad"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench-browser-kit/zipball/54ac3f7bf1471801d8bed6fe5fef755f502809ad",
-                "reference": "54ac3f7bf1471801d8bed6fe5fef755f502809ad",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/orchestra%2Ftestbench-browser-kit/v11.0.0/orchestra-testbench-browser-kit.v11.0.0.zip",
+                "shasum": "2fd92875756c83096a9b25f17c97c824755b57c6"
             },
             "require": {
                 "laravel/browser-kit-testing": "^7.2.7",
@@ -16001,7 +15746,14 @@
                     "Orchestra\\Testbench\\BrowserKit\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Orchestra\\Testbench\\BrowserKit\\Tests\\": "tests/",
+                    "Workbench\\App\\": "workbench/app/",
+                    "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+                    "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -16013,11 +15765,7 @@
                 }
             ],
             "description": "Laravel Browser Kit Testing Helper for Packages Development",
-            "support": {
-                "issues": "https://github.com/orchestral/testbench-browser-kit/issues",
-                "source": "https://github.com/orchestral/testbench-browser-kit/tree/v11.0.0"
-            },
-            "time": "2026-03-16T22:41:04+00:00"
+            "time": "2026-09-07T00:36:07+01:00"
         },
         {
             "name": "orchestra/testbench-core",
@@ -16111,15 +15859,14 @@
             "name": "orchestra/testbench-dusk",
             "version": "v11.4.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/orchestral/testbench-dusk.git",
-                "reference": "22626beb57ceeacbfba190f21f1f91e7bccaf7ea"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchestral/testbench-dusk/zipball/22626beb57ceeacbfba190f21f1f91e7bccaf7ea",
-                "reference": "22626beb57ceeacbfba190f21f1f91e7bccaf7ea",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/orchestra%2Ftestbench-dusk/v11.4.1/orchestra-testbench-dusk.v11.4.1.zip",
+                "shasum": "84d346515f8bd4f0a3e3e3dc5710bab8b4749b45"
             },
             "require": {
                 "composer-runtime-api": "^2.2",
@@ -16150,7 +15897,14 @@
                     "Orchestra\\Testbench\\Dusk\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Orchestra\\Testbench\\Dusk\\Tests\\": "tests/",
+                    "Workbench\\App\\": "workbench/app/",
+                    "Workbench\\Database\\Factories\\": "workbench/database/factories/",
+                    "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -16158,22 +15912,16 @@
                 {
                     "name": "Keoghan Litchfield",
                     "email": "keoghan@klever.co.uk",
-                    "homepage": "https://klever.co.uk",
-                    "role": "Developer"
+                    "homepage": "https://klever.co.uk"
                 },
                 {
                     "name": "Mior Muhammad Zaki",
                     "email": "crynobone@gmail.com",
-                    "homepage": "https://github.com/crynobone",
-                    "role": "Organization Maintainer"
+                    "homepage": "https://github.com/crynobone"
                 }
             ],
             "description": "Laravel Dusk Testing Helper for Packages Development",
-            "support": {
-                "issues": "https://github.com/orchestral/testbench-dusk/issues",
-                "source": "https://github.com/orchestral/testbench-dusk/tree/v11.4.1"
-            },
-            "time": "2026-08-11T12:05:26+00:00"
+            "time": "2026-09-07T00:36:07+01:00"
         },
         {
             "name": "orchestra/workbench",
@@ -16248,15 +15996,14 @@
             "name": "pestphp/pest",
             "version": "v5.1.3",
             "source": {
-                "type": "git",
-                "url": "https://github.com/pestphp/pest.git",
-                "reference": "20a5aacaca4fce9116922f42d2942b3f9f5bbfc6"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest/zipball/20a5aacaca4fce9116922f42d2942b3f9f5bbfc6",
-                "reference": "20a5aacaca4fce9116922f42d2942b3f9f5bbfc6",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/pestphp%2Fpest/v5.1.3/pestphp-pest.v5.1.3.zip",
+                "shasum": "6adffec68acb544a9201a12fa52fe3c7dcb58559"
             },
             "require": {
                 "brianium/paratest": "^7.24.1",
@@ -16269,13 +16016,6 @@
                 "php": "^8.4",
                 "phpunit/phpunit": "^13.3.1",
                 "symfony/process": "^8.1.5"
-            },
-            "conflict": {
-                "filp/whoops": "<2.18.3",
-                "laravel/boost": "<2.6.0",
-                "phpunit/phpunit": ">13.3.1",
-                "sebastian/exporter": "<7.0.0",
-                "webmozart/assert": "<1.11.0"
             },
             "require-dev": {
                 "pestphp/pest-dev-tools": "^5.0.0",
@@ -16329,7 +16069,21 @@
                     "Pest\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "classmap": [
+                    "tests/Fixtures/Arch/ToBeCasedCorrectly/IncorrectCasing/incorrectCasing.php"
+                ],
+                "files": [
+                    "tests/Autoload.php"
+                ],
+                "psr-4": {
+                    "Tests\\": "tests/PHPUnit/",
+                    "Tests\\Fixtures\\Arch\\": "tests/Fixtures/Arch",
+                    "Tests\\Fixtures\\Covers\\": "tests/Fixtures/Covers",
+                    "Tests\\Fixtures\\Inheritance\\": "tests/Fixtures/Inheritance",
+                    "Tests\\Fixtures\\Tia\\": "tests/Fixtures/Tia"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -16348,43 +16102,25 @@
                 "testing",
                 "unit"
             ],
-            "support": {
-                "issues": "https://github.com/pestphp/pest/issues",
-                "source": "https://github.com/pestphp/pest/tree/v5.1.3"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.com/paypalme/enunomaduro",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/nunomaduro",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-08-25T18:15:02+00:00"
+            "time": "2026-09-07T00:36:07+01:00"
         },
         {
             "name": "pestphp/pest-plugin",
             "version": "v5.0.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/pestphp/pest-plugin.git",
-                "reference": "87283f41aafa2561b7618be53eab00f2d06f4140"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin/zipball/87283f41aafa2561b7618be53eab00f2d06f4140",
-                "reference": "87283f41aafa2561b7618be53eab00f2d06f4140",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/pestphp%2Fpest-plugin/v5.0.0/pestphp-pest-plugin.v5.0.0.zip",
+                "shasum": "3c6499f86990a9486d94049275015b65c0b48c24"
             },
             "require": {
                 "composer-plugin-api": "^2.0.0",
                 "composer-runtime-api": "^2.2.2",
                 "php": "^8.4"
-            },
-            "conflict": {
-                "pestphp/pest": "<5.0.0"
             },
             "require-dev": {
                 "composer/composer": "^2.10.2",
@@ -16400,7 +16136,12 @@
                     "Pest\\Plugin\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Pest\\Plugins\\": "tests/Stubs/PestPlugins",
+                    "Tests\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -16415,46 +16156,25 @@
                 "testing",
                 "unit"
             ],
-            "support": {
-                "source": "https://github.com/pestphp/pest-plugin/tree/v5.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/nunomaduro",
-                    "type": "github"
-                },
-                {
-                    "url": "https://www.patreon.com/nunomaduro",
-                    "type": "patreon"
-                }
-            ],
-            "time": "2026-07-18T17:10:45+00:00"
+            "time": "2026-09-07T00:35:26+01:00"
         },
         {
             "name": "pestphp/pest-plugin-arch",
             "version": "v5.0.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/pestphp/pest-plugin-arch.git",
-                "reference": "244465d5dc9ea9fb5ac5c9badb7eb47d1594e4c1"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin-arch/zipball/244465d5dc9ea9fb5ac5c9badb7eb47d1594e4c1",
-                "reference": "244465d5dc9ea9fb5ac5c9badb7eb47d1594e4c1",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/pestphp%2Fpest-plugin-arch/v5.0.0/pestphp-pest-plugin-arch.v5.0.0.zip",
+                "shasum": "3a2dcf5e66c7aa9074a1f674d8ea9a2b0c2d06f4"
             },
             "require": {
                 "pestphp/pest-plugin": "^5.0.0",
                 "php": "^8.4",
                 "ta-tikoma/phpunit-architecture-test": "^0.8.7"
-            },
-            "conflict": {
-                "pestphp/pest": "<5.0.0"
             },
             "require-dev": {
                 "pestphp/pest": "^5.0.0",
@@ -16476,7 +16196,15 @@
                     "Pest\\Arch\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "files": [
+                    "tests/Fixtures/Functions.php",
+                    "tests/Fixtures/NamespacedFunctions.php"
+                ],
+                "psr-4": {
+                    "Tests\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -16492,42 +16220,25 @@
                 "testing",
                 "unit"
             ],
-            "support": {
-                "source": "https://github.com/pestphp/pest-plugin-arch/tree/v5.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.com/paypalme/enunomaduro",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/nunomaduro",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-07-21T07:48:55+00:00"
+            "time": "2026-09-07T00:36:07+01:00"
         },
         {
             "name": "pestphp/pest-plugin-laravel",
             "version": "v5.0.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/pestphp/pest-plugin-laravel.git",
-                "reference": "d1564646e3198f1b607e64a36501d6edff7d104e"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin-laravel/zipball/d1564646e3198f1b607e64a36501d6edff7d104e",
-                "reference": "d1564646e3198f1b607e64a36501d6edff7d104e",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/pestphp%2Fpest-plugin-laravel/v5.0.1/pestphp-pest-plugin-laravel.v5.0.1.zip",
+                "shasum": "7c9fd715a830bebc428e6f8451295d7191913087"
             },
             "require": {
                 "laravel/framework": "^13.23.0",
                 "pestphp/pest": "^5.0.1",
                 "php": "^8.4"
-            },
-            "conflict": {
-                "pestphp/pest": "<5.0.0"
             },
             "require-dev": {
                 "laravel/dusk": "^8.6.0",
@@ -16536,14 +16247,14 @@
             },
             "type": "library",
             "extra": {
-                "pest": {
-                    "plugins": [
-                        "Pest\\Laravel\\Plugin"
-                    ]
-                },
                 "laravel": {
                     "providers": [
                         "Pest\\Laravel\\PestServiceProvider"
+                    ]
+                },
+                "pest": {
+                    "plugins": [
+                        "Pest\\Laravel\\Plugin"
                     ]
                 }
             },
@@ -16555,7 +16266,11 @@
                     "Pest\\Laravel\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -16569,34 +16284,20 @@
                 "testing",
                 "unit"
             ],
-            "support": {
-                "source": "https://github.com/pestphp/pest-plugin-laravel/tree/v5.0.1"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.com/paypalme/enunomaduro",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/nunomaduro",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-07-29T18:19:36+00:00"
+            "time": "2026-09-07T00:36:07+01:00"
         },
         {
             "name": "pestphp/pest-plugin-mutate",
             "version": "v5.0.2",
             "source": {
-                "type": "git",
-                "url": "https://github.com/pestphp/pest-plugin-mutate.git",
-                "reference": "d0c87110416b699413cc073b8dcc92e440d81931"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin-mutate/zipball/d0c87110416b699413cc073b8dcc92e440d81931",
-                "reference": "d0c87110416b699413cc073b8dcc92e440d81931",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/pestphp%2Fpest-plugin-mutate/v5.0.2/pestphp-pest-plugin-mutate.v5.0.2.zip",
+                "shasum": "dc5628ed5c9d8ba0e63ad4fa06dcf3ca2c06f872"
             },
             "require": {
                 "nikic/php-parser": "^5.8.0",
@@ -16604,9 +16305,6 @@
                 "php": "^8.4",
                 "phpunit/php-code-coverage": "^14.3.0",
                 "psr/simple-cache": "^3.0.0"
-            },
-            "conflict": {
-                "pestphp/pest": "<5.0.0"
             },
             "require-dev": {
                 "pestphp/pest": "^5.0.4",
@@ -16619,7 +16317,12 @@
                     "Pest\\Mutate\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests",
+                    "Tests\\Tests\\": "tests/.tests"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -16645,45 +16348,24 @@
                 "testing",
                 "unit"
             ],
-            "support": {
-                "source": "https://github.com/pestphp/pest-plugin-mutate/tree/v5.0.2"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.com/paypalme/enunomaduro",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/gehrisandro",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/nunomaduro",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-08-10T11:01:27+00:00"
+            "time": "2026-09-07T00:36:07+01:00"
         },
         {
             "name": "pestphp/pest-plugin-profanity",
             "version": "v5.0.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/pestphp/pest-plugin-profanity.git",
-                "reference": "3dedf9ea6e2876b5b31f7733d3eacbd86f4653b9"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin-profanity/zipball/3dedf9ea6e2876b5b31f7733d3eacbd86f4653b9",
-                "reference": "3dedf9ea6e2876b5b31f7733d3eacbd86f4653b9",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/pestphp%2Fpest-plugin-profanity/v5.0.0/pestphp-pest-plugin-profanity.v5.0.0.zip",
+                "shasum": "bde500c9288863b389bdf9e2c8274d76ffb4e9b4"
             },
             "require": {
                 "pestphp/pest-plugin": "^5.0.0",
                 "php": "^8.4"
-            },
-            "conflict": {
-                "pestphp/pest": "<5.0.0"
             },
             "require-dev": {
                 "faissaloux/pest-plugin-inside": "^1.11",
@@ -16703,7 +16385,6 @@
                     "Pest\\Profanity\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -16718,24 +16399,20 @@
                 "testing",
                 "unit"
             ],
-            "support": {
-                "source": "https://github.com/pestphp/pest-plugin-profanity/tree/v5.0.0"
-            },
-            "time": "2026-07-21T07:48:56+00:00"
+            "time": "2026-09-07T00:36:07+01:00"
         },
         {
             "name": "pestphp/pest-plugin-type-coverage",
             "version": "v5.0.2",
             "source": {
-                "type": "git",
-                "url": "https://github.com/pestphp/pest-plugin-type-coverage.git",
-                "reference": "6bcd630c6ee6bc06b0ae54a9d35fef0f4087efd7"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pestphp/pest-plugin-type-coverage/zipball/6bcd630c6ee6bc06b0ae54a9d35fef0f4087efd7",
-                "reference": "6bcd630c6ee6bc06b0ae54a9d35fef0f4087efd7",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/pestphp%2Fpest-plugin-type-coverage/v5.0.2/pestphp-pest-plugin-type-coverage.v5.0.2.zip",
+                "shasum": "67f477d72d453b6103dc7a6dff8078802b3e05a4"
             },
             "require": {
                 "nunomaduro/pokio": "^1.0.1",
@@ -16743,10 +16420,6 @@
                 "php": "^8.4",
                 "phpstan/phpstan": "^2.2.7",
                 "tomasvotruba/type-coverage": "^2.3.0"
-            },
-            "conflict": {
-                "pestphp/pest": "<5.0.0",
-                "phpstan/phpstan": "<2.2.7"
             },
             "require-dev": {
                 "pestphp/pest": "^5.0.3",
@@ -16765,7 +16438,11 @@
                     "Pest\\TypeCoverage\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\Fixtures\\": "tests/Fixtures"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -16781,20 +16458,7 @@
                 "type-coverage",
                 "unit"
             ],
-            "support": {
-                "source": "https://github.com/pestphp/pest-plugin-type-coverage/tree/v5.0.2"
-            },
-            "funding": [
-                {
-                    "url": "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=66BYDWAT92N6L",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/nunomaduro",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-08-04T16:35:23+00:00"
+            "time": "2026-09-07T00:36:08+01:00"
         },
         {
             "name": "phar-io/manifest",
@@ -17060,15 +16724,14 @@
             "name": "phpunit/php-code-coverage",
             "version": "14.3.2",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "93d62632fb675b76c9b941fdcfcfa10ffb9dea75"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/93d62632fb675b76c9b941fdcfcfa10ffb9dea75",
-                "reference": "93d62632fb675b76c9b941fdcfcfa10ffb9dea75",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/phpunit%2Fphp-code-coverage/14.3.2/phpunit-php-code-coverage.14.3.2.zip",
+                "shasum": "cddee3c10603c059093102ebb95a10ef82bc9f30"
             },
             "require": {
                 "ext-dom": "*",
@@ -17103,15 +16766,18 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "classmap": [
+                    "tests/"
+                ]
+            },
             "license": [
                 "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Library that provides collection, processing, and rendering functionality for PHP code coverage information.",
@@ -17121,44 +16787,20 @@
                 "testing",
                 "xunit"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/php-code-coverage/issues",
-                "security": "https://github.com/sebastianbergmann/php-code-coverage/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-code-coverage/tree/14.3.2"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpunit/php-code-coverage",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-09-04T03:46:43+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "phpunit/php-file-iterator",
             "version": "7.0.2",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "9bb4e6c58b62c1e043be995c66abec7c97307aae"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/9bb4e6c58b62c1e043be995c66abec7c97307aae",
-                "reference": "9bb4e6c58b62c1e043be995c66abec7c97307aae",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/phpunit%2Fphp-file-iterator/7.0.2/phpunit-php-file-iterator.7.0.2.zip",
+                "shasum": "237c1ddd80589c83fffd8ef81058d1d1b1dd5e90"
             },
             "require": {
                 "php": ">=8.4"
@@ -17177,15 +16819,13 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "FilterIterator implementation that filters files based on a list of suffixes.",
@@ -17194,44 +16834,20 @@
                 "filesystem",
                 "iterator"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/php-file-iterator/issues",
-                "security": "https://github.com/sebastianbergmann/php-file-iterator/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-file-iterator/tree/7.0.2"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpunit/php-file-iterator",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-08-25T14:47:43+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "phpunit/php-invoker",
             "version": "7.0.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/php-invoker.git",
-                "reference": "42e5c5cae0c65df12d1b1a3ab52bf3f50f244d88"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-invoker/zipball/42e5c5cae0c65df12d1b1a3ab52bf3f50f244d88",
-                "reference": "42e5c5cae0c65df12d1b1a3ab52bf3f50f244d88",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/phpunit%2Fphp-invoker/7.0.0/phpunit-php-invoker.7.0.0.zip",
+                "shasum": "cbcaf6cbbbf9076b8e57757cd56dd28a3c45d5dd"
             },
             "require": {
                 "php": ">=8.4"
@@ -17254,15 +16870,18 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "classmap": [
+                    "tests/_fixture/"
+                ]
+            },
             "license": [
                 "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Invoke callables with a timeout",
@@ -17270,44 +16889,20 @@
             "keywords": [
                 "process"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/php-invoker/issues",
-                "security": "https://github.com/sebastianbergmann/php-invoker/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-invoker/tree/7.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpunit/php-invoker",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-02-06T04:34:47+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "phpunit/php-text-template",
             "version": "6.0.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/php-text-template.git",
-                "reference": "a47af19f93f76aa3368303d752aa5272ca3299f4"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-text-template/zipball/a47af19f93f76aa3368303d752aa5272ca3299f4",
-                "reference": "a47af19f93f76aa3368303d752aa5272ca3299f4",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/phpunit%2Fphp-text-template/6.0.0/phpunit-php-text-template.6.0.0.zip",
+                "shasum": "14b7f19df8bd932363cb896f6c118f9f3fc93d55"
             },
             "require": {
                 "php": ">=8.4"
@@ -17326,15 +16921,13 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Simple template engine.",
@@ -17342,44 +16935,20 @@
             "keywords": [
                 "template"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/php-text-template/issues",
-                "security": "https://github.com/sebastianbergmann/php-text-template/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-text-template/tree/6.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpunit/php-text-template",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-02-06T04:36:37+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "phpunit/php-timer",
             "version": "9.0.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/php-timer.git",
-                "reference": "a0e12065831f6ab0d83120dc61513eb8d9a966f6"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-timer/zipball/a0e12065831f6ab0d83120dc61513eb8d9a966f6",
-                "reference": "a0e12065831f6ab0d83120dc61513eb8d9a966f6",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/phpunit%2Fphp-timer/9.0.0/phpunit-php-timer.9.0.0.zip",
+                "shasum": "84b00944aa609d5f251786eb6103b806e1e5513c"
             },
             "require": {
                 "php": ">=8.4"
@@ -17398,15 +16967,13 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Utility class for timing",
@@ -17414,43 +16981,20 @@
             "keywords": [
                 "timer"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/php-timer/issues",
-                "security": "https://github.com/sebastianbergmann/php-timer/security/policy",
-                "source": "https://github.com/sebastianbergmann/php-timer/tree/9.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/phpunit/php-timer",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-02-06T04:37:53+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "13.3.1",
+            "version": "13.3.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "fc024931d6ad047404e9d86536735923fe63a06b"
+                "reference": "22104a5ceb8d642e6b30ab00211d53d88e2db368"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/fc024931d6ad047404e9d86536735923fe63a06b",
-                "reference": "fc024931d6ad047404e9d86536735923fe63a06b",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/22104a5ceb8d642e6b30ab00211d53d88e2db368",
+                "reference": "22104a5ceb8d642e6b30ab00211d53d88e2db368",
                 "shasum": ""
             },
             "require": {
@@ -17464,8 +17008,8 @@
                 "phar-io/manifest": "^2.0.4",
                 "phar-io/version": "^3.2.1",
                 "php": ">=8.4.1",
-                "phpunit/php-code-coverage": "^14.3",
-                "phpunit/php-file-iterator": "^7.0.1",
+                "phpunit/php-code-coverage": "^14.3.1",
+                "phpunit/php-file-iterator": "^7.0.2",
                 "phpunit/php-invoker": "^7.0.0",
                 "phpunit/php-text-template": "^6.0.0",
                 "phpunit/php-timer": "^9.0.0",
@@ -17521,7 +17065,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/phpunit/issues",
                 "security": "https://github.com/sebastianbergmann/phpunit/security/policy",
-                "source": "https://github.com/sebastianbergmann/phpunit/tree/13.3.1"
+                "source": "https://github.com/sebastianbergmann/phpunit/tree/13.3.2"
             },
             "funding": [
                 {
@@ -17529,7 +17073,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-08-13T13:14:23+00:00"
+            "time": "2026-08-27T08:40:49+00:00"
         },
         {
             "name": "react/cache",
@@ -19176,15 +18720,14 @@
             "name": "sanmai/di-container",
             "version": "0.2",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sanmai/di-container.git",
-                "reference": "c14ca816bb5527e2361e3dc554a20829674c7ee1"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sanmai/di-container/zipball/c14ca816bb5527e2361e3dc554a20829674c7ee1",
-                "reference": "c14ca816bb5527e2361e3dc554a20829674c7ee1",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sanmai%2Fdi-container/0.2/sanmai-di-container.0.2.zip",
+                "shasum": "6d849ad384ae0b316313d8576ddd188a889e18fe"
             },
             "require": {
                 "php": ">=8.2",
@@ -19213,7 +18756,12 @@
                     "DIContainer\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Benchmarks\\DIContainer\\": "benchmarks/",
+                    "Tests\\DIContainer\\": "tests/"
+                }
+            },
             "license": [
                 "BSD-3-Clause"
             ],
@@ -19234,36 +18782,25 @@
             ],
             "description": "dependency injection container with automatic constructor dependency resolution",
             "keywords": [
-                "Autowiring",
+                "autowiring",
                 "constructor di",
                 "di container",
                 "psr 11"
             ],
-            "support": {
-                "issues": "https://github.com/sanmai/di-container/issues",
-                "source": "https://github.com/sanmai/di-container/tree/0.2"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sanmai",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-08-11T06:42:18+00:00"
+            "time": "2026-09-07T00:36:06+01:00"
         },
         {
             "name": "sanmai/duoclock",
             "version": "0.1.3",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sanmai/DuoClock.git",
-                "reference": "47461e3ff65b7308635047831a55615652e7be1a"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sanmai/DuoClock/zipball/47461e3ff65b7308635047831a55615652e7be1a",
-                "reference": "47461e3ff65b7308635047831a55615652e7be1a",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sanmai%2Fduoclock/0.1.3/sanmai-duoclock.0.1.3.zip",
+                "shasum": "89f31c12bdd46a4367d8549c55273eb1934a6874"
             },
             "require": {
                 "php": ">=8.2",
@@ -19291,7 +18828,11 @@
                     "DuoClock\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\DuoClock\\": "tests/"
+                }
+            },
             "license": [
                 "Apache-2.0"
             ],
@@ -19302,17 +18843,7 @@
                 }
             ],
             "description": "PHP time mocking for tests - PSR-20 clock with mockable sleep(), time(), and TimeSpy for PHPUnit testing",
-            "support": {
-                "issues": "https://github.com/sanmai/DuoClock/issues",
-                "source": "https://github.com/sanmai/DuoClock/tree/0.1.3"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sanmai",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-12-26T06:12:34+00:00"
+            "time": "2026-09-07T00:36:06+01:00"
         },
         {
             "name": "sanmai/later",
@@ -19375,15 +18906,14 @@
             "name": "sanmai/pipeline",
             "version": "7.10",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sanmai/pipeline.git",
-                "reference": "a8e4e57a6031efc7a92defd13fed9c1c4c73fc71"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sanmai/pipeline/zipball/a8e4e57a6031efc7a92defd13fed9c1c4c73fc71",
-                "reference": "a8e4e57a6031efc7a92defd13fed9c1c4c73fc71",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sanmai%2Fpipeline/7.10/sanmai-pipeline.7.10.zip",
+                "shasum": "ec8c1978e031489b35c5936a2e8c520d11512cc5"
             },
             "require": {
                 "php": ">=8.2"
@@ -19416,7 +18946,11 @@
                     "Pipeline\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\Pipeline\\": "tests/"
+                }
+            },
             "license": [
                 "Apache-2.0"
             ],
@@ -19427,31 +18961,20 @@
                 }
             ],
             "description": "General-purpose collections pipeline",
-            "support": {
-                "issues": "https://github.com/sanmai/pipeline/issues",
-                "source": "https://github.com/sanmai/pipeline/tree/7.10"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sanmai",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-08-03T04:56:22+00:00"
+            "time": "2026-09-07T00:36:06+01:00"
         },
         {
             "name": "sebastian/cli-parser",
             "version": "5.0.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/cli-parser.git",
-                "reference": "eeb759ad3146b7096fb59c3195d39e071cd409e3"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/cli-parser/zipball/eeb759ad3146b7096fb59c3195d39e071cd409e3",
-                "reference": "eeb759ad3146b7096fb59c3195d39e071cd409e3",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sebastian%2Fcli-parser/5.0.1/sebastian-cli-parser.5.0.1.zip",
+                "shasum": "e52f88df78c5a69a8f690418ca5eeafac7c24262"
             },
             "require": {
                 "php": ">=8.4"
@@ -19470,57 +18993,31 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Library for parsing CLI options",
             "homepage": "https://github.com/sebastianbergmann/cli-parser",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/cli-parser/issues",
-                "security": "https://github.com/sebastianbergmann/cli-parser/security/policy",
-                "source": "https://github.com/sebastianbergmann/cli-parser/tree/5.0.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/sebastian/cli-parser",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-08-01T04:27:14+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "sebastian/comparator",
             "version": "8.4.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "3b070e608146cba00fd6fd1f0ffba89e5a8897fb"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/3b070e608146cba00fd6fd1f0ffba89e5a8897fb",
-                "reference": "3b070e608146cba00fd6fd1f0ffba89e5a8897fb",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sebastian%2Fcomparator/8.4.0/sebastian-comparator.8.4.0.zip",
+                "shasum": "a363565222af7d3d7121deb50c23851e7c981263"
             },
             "require": {
                 "ext-dom": "*",
@@ -19546,7 +19043,11 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "classmap": [
+                    "tests/_fixture"
+                ]
+            },
             "license": [
                 "BSD-3-Clause"
             ],
@@ -19575,44 +19076,20 @@
                 "compare",
                 "equality"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/comparator/issues",
-                "security": "https://github.com/sebastianbergmann/comparator/security/policy",
-                "source": "https://github.com/sebastianbergmann/comparator/tree/8.4.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/sebastian/comparator",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-08-07T07:23:13+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "sebastian/complexity",
             "version": "6.0.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/complexity.git",
-                "reference": "c5651c795c98093480df79350cb050813fc7a2f3"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/complexity/zipball/c5651c795c98093480df79350cb050813fc7a2f3",
-                "reference": "c5651c795c98093480df79350cb050813fc7a2f3",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sebastian%2Fcomplexity/6.0.0/sebastian-complexity.6.0.0.zip",
+                "shasum": "d44501990fbbca12f92ea3ad60294c7179f583d7"
             },
             "require": {
                 "nikic/php-parser": "^5.0",
@@ -19632,57 +19109,31 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Library for calculating the complexity of PHP code units",
             "homepage": "https://github.com/sebastianbergmann/complexity",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/complexity/issues",
-                "security": "https://github.com/sebastianbergmann/complexity/security/policy",
-                "source": "https://github.com/sebastianbergmann/complexity/tree/6.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/sebastian/complexity",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-02-06T04:41:32+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "sebastian/diff",
             "version": "9.0.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "a2df6626c1baf31d5a88674882a3072f151b5a26"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/a2df6626c1baf31d5a88674882a3072f151b5a26",
-                "reference": "a2df6626c1baf31d5a88674882a3072f151b5a26",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sebastian%2Fdiff/9.0.1/sebastian-diff.9.0.1.zip",
+                "shasum": "b9f0d55b8d1dacaac96a71be0816f8b0002cfa26"
             },
             "require": {
                 "php": ">=8.4"
@@ -19702,7 +19153,11 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "classmap": [
+                    "tests/"
+                ]
+            },
             "license": [
                 "BSD-3-Clause"
             ],
@@ -19724,44 +19179,20 @@
                 "unidiff",
                 "unified diff"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/diff/issues",
-                "security": "https://github.com/sebastianbergmann/diff/security/policy",
-                "source": "https://github.com/sebastianbergmann/diff/tree/9.0.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/sebastian/diff",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-08-25T15:38:55+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "sebastian/environment",
             "version": "9.3.2",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/environment.git",
-                "reference": "6c9e487c9eb706a8d258102a1c0b0a3e53e86c2e"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/environment/zipball/6c9e487c9eb706a8d258102a1c0b0a3e53e86c2e",
-                "reference": "6c9e487c9eb706a8d258102a1c0b0a3e53e86c2e",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sebastian%2Fenvironment/9.3.2/sebastian-environment.9.3.2.zip",
+                "shasum": "9ad89d32b7865cdd38b261f63c32300b29eadbc2"
             },
             "require": {
                 "php": ">=8.4"
@@ -19783,7 +19214,6 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -19796,48 +19226,24 @@
             "description": "Provides functionality to handle HHVM/PHP environments",
             "homepage": "https://github.com/sebastianbergmann/environment",
             "keywords": [
-                "Xdebug",
                 "environment",
-                "hhvm"
+                "hhvm",
+                "xdebug"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/environment/issues",
-                "security": "https://github.com/sebastianbergmann/environment/security/policy",
-                "source": "https://github.com/sebastianbergmann/environment/tree/9.3.2"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/sebastian/environment",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-05-25T13:41:38+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "sebastian/exporter",
             "version": "8.2.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/exporter.git",
-                "reference": "24a3b69bba4a12ab615fca9d34680c5598d9ab7a"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/24a3b69bba4a12ab615fca9d34680c5598d9ab7a",
-                "reference": "24a3b69bba4a12ab615fca9d34680c5598d9ab7a",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sebastian%2Fexporter/8.2.1/sebastian-exporter.8.2.1.zip",
+                "shasum": "368e4396315fc347e31bcdb2484e52d8130cb3f6"
             },
             "require": {
                 "ext-mbstring": "*",
@@ -19858,7 +19264,11 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "classmap": [
+                    "tests/_fixture"
+                ]
+            },
             "license": [
                 "BSD-3-Clause"
             ],
@@ -19890,44 +19300,20 @@
                 "export",
                 "exporter"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/exporter/issues",
-                "security": "https://github.com/sebastianbergmann/exporter/security/policy",
-                "source": "https://github.com/sebastianbergmann/exporter/tree/8.2.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/sebastian/exporter",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-08-07T07:22:06+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "sebastian/file-filter",
             "version": "1.0.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/file-filter.git",
-                "reference": "33a26f394330f6faa7684bb9cc73afb7727aae93"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/file-filter/zipball/33a26f394330f6faa7684bb9cc73afb7727aae93",
-                "reference": "33a26f394330f6faa7684bb9cc73afb7727aae93",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sebastian%2Ffile-filter/1.0.0/sebastian-file-filter.1.0.0.zip",
+                "shasum": "d12bafce9ed19bcce47fa6f79f8ef0ba5a1cf27b"
             },
             "require": {
                 "php": ">=8.4"
@@ -19946,57 +19332,31 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Library for filtering files",
             "homepage": "https://github.com/sebastianbergmann/file-filter",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/file-filter/issues",
-                "security": "https://github.com/sebastianbergmann/file-filter/security/policy",
-                "source": "https://github.com/sebastianbergmann/file-filter/tree/1.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/sebastian/file-filter",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-04-22T07:20:04+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "sebastian/git-state",
             "version": "1.0.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/git-state.git",
-                "reference": "792a952e0eba55b6960a48aeceb9f371aad1f76b"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/git-state/zipball/792a952e0eba55b6960a48aeceb9f371aad1f76b",
-                "reference": "792a952e0eba55b6960a48aeceb9f371aad1f76b",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sebastian%2Fgit-state/1.0.0/sebastian-git-state.1.0.0.zip",
+                "shasum": "eccd83c5cd2a1afa6885d6a9a6b3fb875fcddc17"
             },
             "require": {
                 "php": ">=8.4"
@@ -20015,57 +19375,31 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Library for describing the state of a Git checkout",
             "homepage": "https://github.com/sebastianbergmann/git-state",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/git-state/issues",
-                "security": "https://github.com/sebastianbergmann/git-state/security/policy",
-                "source": "https://github.com/sebastianbergmann/git-state/tree/1.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/sebastian/git-state",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-03-21T12:54:28+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "sebastian/global-state",
             "version": "9.0.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/global-state.git",
-                "reference": "ba68ba79da690cf7eddefd3ce5b78b20b9ba9945"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/global-state/zipball/ba68ba79da690cf7eddefd3ce5b78b20b9ba9945",
-                "reference": "ba68ba79da690cf7eddefd3ce5b78b20b9ba9945",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sebastian%2Fglobal-state/9.0.1/sebastian-global-state.9.0.1.zip",
+                "shasum": "2ad4778753042e8562101412821d9161a84584ba"
             },
             "require": {
                 "php": ">=8.4",
@@ -20087,7 +19421,14 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "classmap": [
+                    "tests/_fixture/"
+                ],
+                "files": [
+                    "tests/_fixture/SnapshotFunctions.php"
+                ]
+            },
             "license": [
                 "BSD-3-Clause"
             ],
@@ -20102,44 +19443,20 @@
             "keywords": [
                 "global state"
             ],
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/global-state/issues",
-                "security": "https://github.com/sebastianbergmann/global-state/security/policy",
-                "source": "https://github.com/sebastianbergmann/global-state/tree/9.0.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/sebastian/global-state",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-06-01T15:11:33+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "sebastian/lines-of-code",
             "version": "5.0.2",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/lines-of-code.git",
-                "reference": "d1b6f8fce682505dbd048977f1abedf1b8ad3ff8"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/lines-of-code/zipball/d1b6f8fce682505dbd048977f1abedf1b8ad3ff8",
-                "reference": "d1b6f8fce682505dbd048977f1abedf1b8ad3ff8",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sebastian%2Flines-of-code/5.0.2/sebastian-lines-of-code.5.0.2.zip",
+                "shasum": "6c33b67db1cc8f2f5dfea5bc6645e47ec8fbafba"
             },
             "require": {
                 "nikic/php-parser": "^5.8.0",
@@ -20159,57 +19476,31 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Library for counting the lines of code in PHP source code",
             "homepage": "https://github.com/sebastianbergmann/lines-of-code",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/lines-of-code/issues",
-                "security": "https://github.com/sebastianbergmann/lines-of-code/security/policy",
-                "source": "https://github.com/sebastianbergmann/lines-of-code/tree/5.0.2"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/sebastian/lines-of-code",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-07-09T08:42:34+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "sebastian/object-enumerator",
             "version": "8.1.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/object-enumerator.git",
-                "reference": "511064ecde82bd747e2ba2fab3dda8d977b59576"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/object-enumerator/zipball/511064ecde82bd747e2ba2fab3dda8d977b59576",
-                "reference": "511064ecde82bd747e2ba2fab3dda8d977b59576",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sebastian%2Fobject-enumerator/8.1.0/sebastian-object-enumerator.8.1.0.zip",
+                "shasum": "14e70fe7ae517129dc10e9574edff27938a27257"
             },
             "require": {
                 "php": ">=8.4",
@@ -20229,7 +19520,11 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "classmap": [
+                    "tests/_fixture/"
+                ]
+            },
             "license": [
                 "BSD-3-Clause"
             ],
@@ -20241,44 +19536,20 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/object-enumerator/issues",
-                "security": "https://github.com/sebastianbergmann/object-enumerator/security/policy",
-                "source": "https://github.com/sebastianbergmann/object-enumerator/tree/8.1.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/sebastian/object-enumerator",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-08-13T07:05:05+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "sebastian/object-reflector",
             "version": "6.1.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/object-reflector.git",
-                "reference": "f71bbcdc4f95456b4622810bec64eb06372e25b2"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/object-reflector/zipball/f71bbcdc4f95456b4622810bec64eb06372e25b2",
-                "reference": "f71bbcdc4f95456b4622810bec64eb06372e25b2",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sebastian%2Fobject-reflector/6.1.0/sebastian-object-reflector.6.1.0.zip",
+                "shasum": "9925c8af31822e0176ce8640c2eb953a150ae83b"
             },
             "require": {
                 "php": ">=8.4"
@@ -20297,7 +19568,11 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "classmap": [
+                    "tests/_fixture/"
+                ]
+            },
             "license": [
                 "BSD-3-Clause"
             ],
@@ -20309,44 +19584,20 @@
             ],
             "description": "Allows reflection of object attributes, including inherited and non-public ones",
             "homepage": "https://github.com/sebastianbergmann/object-reflector/",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/object-reflector/issues",
-                "security": "https://github.com/sebastianbergmann/object-reflector/security/policy",
-                "source": "https://github.com/sebastianbergmann/object-reflector/tree/6.1.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/sebastian/object-reflector",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-08-13T06:34:36+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "sebastian/recursion-context",
             "version": "8.0.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/recursion-context.git",
-                "reference": "32dba72f2b4642d6a93db22d6c0a9280ff2e3ca0"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/32dba72f2b4642d6a93db22d6c0a9280ff2e3ca0",
-                "reference": "32dba72f2b4642d6a93db22d6c0a9280ff2e3ca0",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sebastian%2Frecursion-context/8.0.1/sebastian-recursion-context.8.0.1.zip",
+                "shasum": "75302b8a7894632127e5be216d814dad3112099f"
             },
             "require": {
                 "php": ">=8.4"
@@ -20365,7 +19616,6 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
@@ -20385,44 +19635,20 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "https://github.com/sebastianbergmann/recursion-context",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/recursion-context/issues",
-                "security": "https://github.com/sebastianbergmann/recursion-context/security/policy",
-                "source": "https://github.com/sebastianbergmann/recursion-context/tree/8.0.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/sebastian/recursion-context",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-08-03T05:58:12+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "sebastian/type",
             "version": "7.0.2",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/type.git",
-                "reference": "bd1df467864cb95140414059a535b2d906173fcf"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/type/zipball/bd1df467864cb95140414059a535b2d906173fcf",
-                "reference": "bd1df467864cb95140414059a535b2d906173fcf",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sebastian%2Ftype/7.0.2/sebastian-type.7.0.2.zip",
+                "shasum": "02aaf8907677094fa716d8d68da2be01357e4b07"
             },
             "require": {
                 "php": ">=8.4"
@@ -20441,57 +19667,41 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "classmap": [
+                    "tests/_fixture"
+                ],
+                "files": [
+                    "tests/_fixture/callback_function.php",
+                    "tests/_fixture/class_alias.php",
+                    "tests/_fixture/functions_that_declare_return_types.php"
+                ]
+            },
             "license": [
                 "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Collection of value objects that represent the types of the PHP type system",
             "homepage": "https://github.com/sebastianbergmann/type",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/type/issues",
-                "security": "https://github.com/sebastianbergmann/type/security/policy",
-                "source": "https://github.com/sebastianbergmann/type/tree/7.0.2"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/sebastian/type",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-08-10T08:00:57+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "sebastian/version",
             "version": "7.0.0",
             "source": {
-                "type": "git",
-                "url": "https://github.com/sebastianbergmann/version.git",
-                "reference": "ad37a5552c8e2b88572249fdc19b6da7792e021b"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/version/zipball/ad37a5552c8e2b88572249fdc19b6da7792e021b",
-                "reference": "ad37a5552c8e2b88572249fdc19b6da7792e021b",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/sebastian%2Fversion/7.0.0/sebastian-version.7.0.0.zip",
+                "shasum": "7ac9ec63bf4950206775677987af581130e13c24"
             },
             "require": {
                 "php": ">=8.4"
@@ -20507,43 +19717,18 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "email": "sebastian@phpunit.de",
-                    "role": "lead"
+                    "email": "sebastian@phpunit.de"
                 }
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "support": {
-                "issues": "https://github.com/sebastianbergmann/version/issues",
-                "security": "https://github.com/sebastianbergmann/version/security/policy",
-                "source": "https://github.com/sebastianbergmann/version/tree/7.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/sebastianbergmann",
-                    "type": "github"
-                },
-                {
-                    "url": "https://liberapay.com/sebastianbergmann",
-                    "type": "liberapay"
-                },
-                {
-                    "url": "https://thanks.dev/u/gh/sebastianbergmann",
-                    "type": "thanks_dev"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/sebastian/version",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-02-06T04:52:52+00:00"
+            "time": "2026-09-07T00:35:32+01:00"
         },
         {
             "name": "slevomat/coding-standard",
@@ -20986,15 +20171,14 @@
             "name": "symfony/dom-crawler",
             "version": "v8.1.5",
             "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/dom-crawler.git",
-                "reference": "94f70e1b2e5b7b8f8618871fd9eaad3e39e9f03d"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/94f70e1b2e5b7b8f8618871fd9eaad3e39e9f03d",
-                "reference": "94f70e1b2e5b7b8f8618871fd9eaad3e39e9f03d",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/symfony%2Fdom-crawler/v8.1.5/symfony-dom-crawler.v8.1.5.zip",
+                "shasum": "f37a41c97fa83b307c43a522e050062836403cae"
             },
             "require": {
                 "php": ">=8.4.1",
@@ -21006,14 +20190,13 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\DomCrawler\\": ""
-                },
                 "exclude-from-classmap": [
                     "/Tests/"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Component\\DomCrawler\\": ""
+                }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -21029,42 +20212,20 @@
             ],
             "description": "Eases DOM navigation for HTML and XML documents",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/dom-crawler/tree/v8.1.5"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/nicolas-grekas",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-08-21T17:47:34+00:00"
+            "time": "2026-09-07T00:36:07+01:00"
         },
         {
             "name": "symfony/filesystem",
             "version": "v8.1.6",
             "source": {
-                "type": "git",
-                "url": "https://github.com/symfony/filesystem.git",
-                "reference": "7599ebb855fede59413ddb7f15198d67bfcae7ba"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/7599ebb855fede59413ddb7f15198d67bfcae7ba",
-                "reference": "7599ebb855fede59413ddb7f15198d67bfcae7ba",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/symfony%2Ffilesystem/v8.1.6/symfony-filesystem.v8.1.6.zip",
+                "shasum": "65c76ba6f7fa4b39b19bb240607eb5b9872e7c02"
             },
             "require": {
                 "php": ">=8.4.1",
@@ -21077,14 +20238,13 @@
             },
             "type": "library",
             "autoload": {
-                "psr-4": {
-                    "Symfony\\Component\\Filesystem\\": ""
-                },
                 "exclude-from-classmap": [
                     "/Tests/"
-                ]
+                ],
+                "psr-4": {
+                    "Symfony\\Component\\Filesystem\\": ""
+                }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -21100,28 +20260,7 @@
             ],
             "description": "Provides basic utilities for the filesystem",
             "homepage": "https://symfony.com",
-            "support": {
-                "source": "https://github.com/symfony/filesystem/tree/v8.1.6"
-            },
-            "funding": [
-                {
-                    "url": "https://symfony.com/sponsor",
-                    "type": "custom"
-                },
-                {
-                    "url": "https://github.com/fabpot",
-                    "type": "github"
-                },
-                {
-                    "url": "https://github.com/nicolas-grekas",
-                    "type": "github"
-                },
-                {
-                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
-                    "type": "tidelift"
-                }
-            ],
-            "time": "2026-08-23T10:06:25+00:00"
+            "time": "2026-09-07T00:36:06+01:00"
         },
         {
             "name": "symfony/options-resolver",
@@ -21409,15 +20548,14 @@
             "name": "theseer/tokenizer",
             "version": "2.0.1",
             "source": {
-                "type": "git",
-                "url": "https://github.com/theseer/tokenizer.git",
-                "reference": "7989e43bf381af0eac72e4f0ca5bcbfa81658be4"
+                "type": "",
+                "url": "",
+                "reference": ""
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/theseer/tokenizer/zipball/7989e43bf381af0eac72e4f0ca5bcbfa81658be4",
-                "reference": "7989e43bf381af0eac72e4f0ca5bcbfa81658be4",
-                "shasum": ""
+                "url": "https://git.moof.local/api/packages/deanhowe/composer/files/theseer%2Ftokenizer/2.0.1/theseer-tokenizer.2.0.1.zip",
+                "shasum": "f5d492c65e8a0997cf8047b0e44927d60d3167c7"
             },
             "require": {
                 "ext-dom": "*",
@@ -21431,29 +20569,17 @@
                     "src/"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "email": "arne@blankerts.de",
-                    "role": "Developer"
+                    "email": "arne@blankerts.de"
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
-            "support": {
-                "issues": "https://github.com/theseer/tokenizer/issues",
-                "source": "https://github.com/theseer/tokenizer/tree/2.0.1"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/theseer",
-                    "type": "github"
-                }
-            ],
-            "time": "2025-12-08T11:19:18+00:00"
+            "time": "2026-09-07T00:35:33+01:00"
         },
         {
             "name": "tomasvotruba/type-coverage",

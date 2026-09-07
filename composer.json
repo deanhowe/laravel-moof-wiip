@@ -1,7 +1,7 @@
 {
     "name": "moof/wiip",
     "description": "Moof MOOF \ud83d\udc04 (Massively OTT Opinionated F\u00e5m\u2211w\u2211rk\u0290) enhancer for Laravel \ud83d\udc2e. WiiP (Work in iternal Progress)",
-    "version": "0.0.66",
+    "version": "0.0.67",
     "type": "library",
     "keywords": [
         "subdomains",
@@ -61,7 +61,7 @@
         "deanhowe/moof-folio-markdown": "0.0.3",
         "deanhowe/moof-laravel-bot-bus": "^1.7.0",
         "deanhowe/moof-laravel-pulse-packages": "0.0.1",
-        "elegantly/laravel-money": "^2.3",
+        "elegantly/laravel-money": "^2.3|^4.0.3",
         "guzzlehttp/guzzle": "^7.9.3",
         "ijpatricio/mingle": "^v0.0.21|^v0.0.22",
         "laravel/cashier": "^15.6.4|^16.8.0",

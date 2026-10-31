@@ -1,6 +1,7 @@
 <?php
 
 use DeanHowe\Laravel\Moof\Diagnostics\Recorder;
+use DeanHowe\Laravel\Moof\Diagnostics\RayIntegration;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
 use Illuminate\Foundation\Application;
@@ -325,5 +326,20 @@ it('exposes the configured recorder through the global moof helper', function ()
         Container::setInstance($previousContainer);
         unset($database);
         unlink($databasePath);
+    }
+});
+
+it('disables legacy Ray output when Moof diagnostics replace it', function () {
+    $ray = ray();
+    $ray->enable();
+
+    try {
+        (new RayIntegration)->disableLegacyClient(false);
+        expect($ray->enabled())->toBeTrue();
+
+        (new RayIntegration)->disableLegacyClient(true);
+        expect($ray->disabled())->toBeTrue();
+    } finally {
+        $ray->enable();
     }
 });

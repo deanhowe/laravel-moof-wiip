@@ -3,12 +3,14 @@
 $appEnvironment = env('APP_ENV', 'production');
 $isLocalEnvironment = in_array($appEnvironment, ['local', 'dev', 'development'], true);
 $appDebugEnabled = filter_var(env('APP_DEBUG', false), FILTER_VALIDATE_BOOL);
+$diagnosticsEnabled = filter_var(env('MOOF_DIAGNOSTICS_ENABLED', $isLocalEnvironment && $appDebugEnabled), FILTER_VALIDATE_BOOL);
 $home = env('HOME', getenv('HOME') ?: '');
 
 return [
     'diagnostics' => [
-        'enabled' => filter_var(
-            env('MOOF_DIAGNOSTICS_ENABLED', $isLocalEnvironment && $appDebugEnabled),
+        'enabled' => $diagnosticsEnabled,
+        'disable_legacy_ray' => filter_var(
+            env('MOOF_DIAGNOSTICS_DISABLE_LEGACY_RAY', $diagnosticsEnabled),
             FILTER_VALIDATE_BOOL,
         ),
         'database_path' => env(

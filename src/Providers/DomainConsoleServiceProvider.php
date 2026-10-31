@@ -4,6 +4,7 @@ namespace DeanHowe\Laravel\Moof\Providers;
 
 use App;
 use BladeUI\Icons\Factory;
+use DeanHowe\Laravel\Moof\Diagnostics\RayIntegration;
 use DeanHowe\Laravel\Moof\Console\Commands\MoofMoofDeveloperCommand;
 use DeanHowe\Laravel\Moof\Console\Commands\MoofMoofInstallCommand;
 use DeanHowe\Laravel\Moof\MultiDomain\Console\AddDomainCommand;
@@ -31,6 +32,10 @@ class DomainConsoleServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerConfig();
+
+        (new RayIntegration)->disableLegacyClient(
+            (bool) config('moof.diagnostics.disable_legacy_ray', false),
+        );
 
         // This adds shit to ARTISAN!
         // $this->app->alias('artisan', \DeanHowe\Laravel\Moof\Console\Application::class);

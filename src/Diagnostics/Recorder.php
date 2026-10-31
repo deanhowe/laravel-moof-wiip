@@ -4,7 +4,7 @@ namespace DeanHowe\Laravel\Moof\Diagnostics;
 
 use BackedEnum;
 use DateTimeInterface;
-use PDO;
+use Illuminate\Support\Facades\Http;
 use Throwable;
 use UnitEnum;
 
@@ -21,117 +21,74 @@ final class Recorder
     private const MAX_DEPTH = 5;
 
     public function __construct(
-        private readonly string $databasePath,
+        private readonly string $endpoint,
         private readonly string $source,
-        private readonly int $rateLimitPerMinute = 30,
     ) {}
 
     /**
-     * Append one bounded debug event to Moof's existing event table.
+     * Submit one bounded debug event to the local Moof Forge intake.
      *
      * @param  array<mixed>  $values
      * @param  array{file?: string, line?: int|null}  $callsite
      */
     public function capture(array $values, array $callsite = []): ?string
     {
-        if (! is_file($this->databasePath) || ! is_readable($this->databasePath) || ! is_writable($this->databasePath)) {
+        if (! $this->isLocalEndpoint()) {
             return null;
         }
 
         try {
-            $database = new PDO('sqlite:'.$this->databasePath, options: [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_TIMEOUT => 2,
-            ]);
-            $database->exec('PRAGMA busy_timeout = 1500');
-
-            $schema = $database->prepare("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = 'moof_events'");
-            $schema->execute();
-
-            if ($schema->fetchColumn() === false || $this->rateLimitPerMinute < 1) {
-                return null;
-            }
-
-            $now = time();
             $safeCallsite = $this->sanitizeCallsite($callsite);
             $remainingNodes = self::MAX_TOTAL_NODES;
-            $payload = json_encode([
+            $payload = [
                 'values' => $this->sanitize($values, 0, $remainingNodes),
                 'callsite' => $safeCallsite,
-            ], JSON_THROW_ON_ERROR | JSON_INVALID_UTF8_SUBSTITUTE);
+            ];
+            $encodedPayload = json_encode($payload, JSON_THROW_ON_ERROR | JSON_INVALID_UTF8_SUBSTITUTE);
 
-            if (strlen($payload) > self::MAX_PAYLOAD_BYTES) {
-                $payload = json_encode([
+            if (strlen($encodedPayload) > self::MAX_PAYLOAD_BYTES) {
+                $payload = [
                     'values' => [
                         'truncated' => true,
-                        'original_bytes' => strlen($payload),
+                        'original_bytes' => strlen($encodedPayload),
                     ],
                     'callsite' => $safeCallsite,
-                ], JSON_THROW_ON_ERROR);
-            }
-
-            $database->beginTransaction();
-
-            $duplicate = $database->prepare(<<<'SQL'
-                SELECT event_id FROM moof_events
-                WHERE topic = 'php.debug' AND source = :source
-                  AND payload_json = :payload AND recorded_at >= :since
-                ORDER BY id DESC LIMIT 1
-                SQL);
-            $duplicate->execute([
-                'source' => $this->source,
-                'payload' => $payload,
-                'since' => $now - 60,
-            ]);
-            $existingEventId = $duplicate->fetchColumn();
-
-            if (is_string($existingEventId)) {
-                $database->commit();
-
-                return $existingEventId;
-            }
-
-            $rate = $database->prepare("SELECT COUNT(*) FROM moof_events WHERE topic = 'php.debug' AND source = :source AND recorded_at >= :since");
-            $rate->execute([
-                'source' => $this->source,
-                'since' => $now - 60,
-            ]);
-
-            if ((int) $rate->fetchColumn() >= $this->rateLimitPerMinute) {
-                $database->commit();
-
-                return null;
+                ];
             }
 
             $eventId = $this->uuid();
+            $response = Http::acceptJson()
+                ->connectTimeout(0.2)
+                ->timeout(0.75)
+                ->post($this->endpoint, [
+                    'event_id' => $eventId,
+                    'source' => $this->source,
+                    'payload' => $payload,
+                ]);
 
-            $insert = $database->prepare(<<<'SQL'
-                INSERT INTO moof_events (
-                    event_id, topic, event_type, schema_version, source, subject_type,
-                    subject_id, correlation_id, causation_id, payload_json, severity,
-                    occurred_at, recorded_at
-                ) VALUES (
-                    :event_id, 'php.debug', 'captured', 1, :source, 'php_callsite',
-                    NULL, NULL, NULL, :payload, 'debug', :occurred_at, :recorded_at
-                )
-                SQL);
-            $insert->execute([
-                'event_id' => $eventId,
-                'source' => $this->source,
-                'payload' => $payload,
-                'occurred_at' => $now,
-                'recorded_at' => $now,
-            ]);
-            $database->commit();
+            if ($response->status() !== 202 || $response->json('event_id') !== $eventId || $response->json('queued') !== true) {
+                return null;
+            }
 
             return $eventId;
         } catch (Throwable) {
-            if (isset($database) && $database->inTransaction()) {
-                $database->rollBack();
-            }
-
             return null;
         }
+    }
+
+    private function isLocalEndpoint(): bool
+    {
+        $parts = parse_url($this->endpoint);
+
+        return is_array($parts)
+            && ($parts['scheme'] ?? null) === 'http'
+            && in_array($parts['host'] ?? null, ['127.0.0.1', '::1'], true)
+            && ($parts['path'] ?? null) === '/api/v1/diagnostics/php'
+            && ! isset($parts['user'])
+            && ! isset($parts['pass'])
+            && ! isset($parts['query'])
+            && ! isset($parts['fragment'])
+            && (! isset($parts['port']) || ($parts['port'] >= 1 && $parts['port'] <= 65535));
     }
 
     private function uuid(): string

@@ -1,97 +1,71 @@
 <?php
 
-use DeanHowe\Laravel\Moof\Diagnostics\Recorder;
 use DeanHowe\Laravel\Moof\Diagnostics\RayIntegration;
+use DeanHowe\Laravel\Moof\Diagnostics\Recorder;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\Client\Factory as HttpFactory;
+use Illuminate\Http\Client\Request as HttpRequest;
+use Illuminate\Support\Facades\Http;
 
-it('appends a structured PHP diagnostic to the existing Moof event log', function () {
-    $databasePath = tempnam(sys_get_temp_dir(), 'moof-events-');
-    $database = new PDO('sqlite:'.$databasePath);
-    $database->exec(<<<'SQL'
-        CREATE TABLE moof_events (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            event_id TEXT NOT NULL UNIQUE,
-            topic TEXT NOT NULL,
-            event_type TEXT NOT NULL,
-            schema_version INTEGER NOT NULL DEFAULT 1,
-            source TEXT NOT NULL,
-            subject_type TEXT,
-            subject_id TEXT,
-            correlation_id TEXT,
-            causation_id TEXT,
-            payload_json TEXT NOT NULL,
-            severity TEXT NOT NULL DEFAULT 'info',
-            occurred_at INTEGER NOT NULL,
-            recorded_at INTEGER NOT NULL
-        )
-        SQL);
+function moofWiipFakeAcceptedDiagnostics(): HttpFactory
+{
+    $http = new HttpFactory;
+    Http::swap($http);
+    $http->fake(function (HttpRequest $request) {
+        $body = json_decode($request->body(), true, flags: JSON_THROW_ON_ERROR);
 
-    try {
-        $eventId = (new Recorder($databasePath, 'php:tests'))->capture(
-            ['request started', ['attempt' => 2]],
-            ['file' => 'app/Example.php', 'line' => 42],
-        );
+        return HttpFactory::response([
+            'event_id' => $body['event_id'],
+            'queued' => true,
+        ], 202);
+    });
 
-        $event = $database->query('SELECT * FROM moof_events')->fetch(PDO::FETCH_ASSOC);
+    return $http;
+}
 
-        expect($eventId)->toBeString()
-            ->and($event['event_id'])->toBe($eventId)
-            ->and($event['topic'])->toBe('php.debug')
-            ->and($event['event_type'])->toBe('captured')
-            ->and($event['source'])->toBe('php:tests')
-            ->and($event['severity'])->toBe('debug')
-            ->and(json_decode($event['payload_json'], true, flags: JSON_THROW_ON_ERROR))->toBe([
+function moofWiipDecodeDiagnosticsRequest(HttpRequest $request): array
+{
+    return json_decode($request->body(), true, flags: JSON_THROW_ON_ERROR);
+}
+
+it('submits one bounded structured diagnostic to the local Forge intake', function () {
+    $http = moofWiipFakeAcceptedDiagnostics();
+    $eventId = (new Recorder('http://127.0.0.1:3030/api/v1/diagnostics/php', 'php:tests'))->capture(
+        ['request started', ['attempt' => 2]],
+        ['file' => 'app/Example.php', 'line' => 42],
+    );
+
+    expect($eventId)->toBeString();
+
+    $http->assertSent(function (HttpRequest $request) use ($eventId): bool {
+        $body = moofWiipDecodeDiagnosticsRequest($request);
+
+        return $request->url() === 'http://127.0.0.1:3030/api/v1/diagnostics/php'
+            && $body['event_id'] === $eventId
+            && $body['source'] === 'php:tests'
+            && $body['payload'] === [
                 'values' => ['request started', ['attempt' => 2]],
                 'callsite' => ['file' => 'app/Example.php', 'line' => 42],
-            ]);
-    } finally {
-        unset($database);
-        unlink($databasePath);
-    }
+            ];
+    });
 });
 
-it('redacts private fields and credential-shaped text before storing diagnostics', function () {
-    $databasePath = tempnam(sys_get_temp_dir(), 'moof-events-');
-    $database = new PDO('sqlite:'.$databasePath);
-    $database->exec(<<<'SQL'
-        CREATE TABLE moof_events (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            event_id TEXT NOT NULL UNIQUE,
-            topic TEXT NOT NULL,
-            event_type TEXT NOT NULL,
-            schema_version INTEGER NOT NULL DEFAULT 1,
-            source TEXT NOT NULL,
-            subject_type TEXT,
-            subject_id TEXT,
-            correlation_id TEXT,
-            causation_id TEXT,
-            payload_json TEXT NOT NULL,
-            severity TEXT NOT NULL DEFAULT 'info',
-            occurred_at INTEGER NOT NULL,
-            recorded_at INTEGER NOT NULL
-        )
-        SQL);
+it('redacts private fields and credential-shaped text before sending diagnostics', function () {
+    $http = moofWiipFakeAcceptedDiagnostics();
+    (new Recorder('http://127.0.0.1:3030/api/v1/diagnostics/php', 'php:tests'))->capture([
+        'token' => 'secret-token-value',
+        'private_key' => 'private-key-value',
+        'profile' => [
+            'name' => 'Test Person',
+            'email' => 'private@example.test',
+            'note' => 'Authorization: Bearer abc.def password=hunter2 private_key=abc123 to private@example.test',
+        ],
+    ]);
 
-    try {
-        (new Recorder($databasePath, 'php:tests'))->capture([
-            'token' => 'secret-token-value',
-            'private_key' => 'private-key-value',
-            'profile' => [
-                'name' => 'Test Person',
-                'email' => 'private@example.test',
-                'note' => 'Authorization: Bearer abc.def password=hunter2 private_key=abc123 to private@example.test',
-            ],
-        ]);
-
-        $payload = json_decode(
-            $database->query('SELECT payload_json FROM moof_events')->fetchColumn(),
-            true,
-            flags: JSON_THROW_ON_ERROR,
-        );
-
-        expect($payload['values'])->toBe([
+    $http->assertSent(function (HttpRequest $request): bool {
+        return moofWiipDecodeDiagnosticsRequest($request)['payload']['values'] === [
             'token' => '[redacted]',
             'private_key' => '[redacted]',
             'profile' => [
@@ -99,233 +73,92 @@ it('redacts private fields and credential-shaped text before storing diagnostics
                 'email' => '[redacted]',
                 'note' => 'Authorization: Bearer [redacted] password=[redacted] private_key=[redacted] to [redacted-email]',
             ],
-        ]);
-    } finally {
-        unset($database);
-        unlink($databasePath);
-    }
+        ];
+    });
 });
 
-it('captures plain object properties without exposing secret fields', function () {
-    $databasePath = tempnam(sys_get_temp_dir(), 'moof-events-');
-    $database = new PDO('sqlite:'.$databasePath);
-    $database->exec(<<<'SQL'
-        CREATE TABLE moof_events (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            event_id TEXT NOT NULL UNIQUE,
-            topic TEXT NOT NULL,
-            event_type TEXT NOT NULL,
-            schema_version INTEGER NOT NULL DEFAULT 1,
-            source TEXT NOT NULL,
-            subject_type TEXT,
-            subject_id TEXT,
-            correlation_id TEXT,
-            causation_id TEXT,
-            payload_json TEXT NOT NULL,
-            severity TEXT NOT NULL DEFAULT 'info',
-            occurred_at INTEGER NOT NULL,
-            recorded_at INTEGER NOT NULL
-        )
-        SQL);
-
+it('captures safe plain object properties without exposing secret fields', function () {
+    $http = moofWiipFakeAcceptedDiagnostics();
     $context = (object) [
         'label' => 'worker state',
         'access_token' => 'do-not-store-this',
     ];
 
-    try {
-        (new Recorder($databasePath, 'php:tests'))->capture([$context]);
+    (new Recorder('http://127.0.0.1:3030/api/v1/diagnostics/php', 'php:tests'))->capture([$context]);
 
-        $payload = json_decode(
-            $database->query('SELECT payload_json FROM moof_events')->fetchColumn(),
-            true,
-            flags: JSON_THROW_ON_ERROR,
-        );
-
-        expect($payload['values'][0])->toBe([
+    $http->assertSent(function (HttpRequest $request): bool {
+        return moofWiipDecodeDiagnosticsRequest($request)['payload']['values'][0] === [
             '__class' => 'stdClass',
             'properties' => [
                 'label' => 'worker state',
                 'access_token' => '[redacted]',
             ],
-        ]);
-    } finally {
-        unset($database);
-        unlink($databasePath);
-    }
+        ];
+    });
 });
 
-it('does not create the Brain database schema when the event table is absent', function () {
-    $databasePath = tempnam(sys_get_temp_dir(), 'moof-empty-');
+it('sends only a compact truncation marker when the payload exceeds its byte limit', function () {
+    $http = moofWiipFakeAcceptedDiagnostics();
+    (new Recorder('http://127.0.0.1:3030/api/v1/diagnostics/php', 'php:tests'))->capture(
+        array_fill(0, 40, str_repeat('x', 2048)),
+    );
 
-    try {
-        expect((new Recorder($databasePath, 'php:tests'))->capture(['hello']))->toBeNull()
-            ->and(filesize($databasePath))->toBe(0);
-    } finally {
-        unlink($databasePath);
-    }
+    $http->assertSent(function (HttpRequest $request): bool {
+        $payload = moofWiipDecodeDiagnosticsRequest($request)['payload'];
+        $encoded = json_encode($payload, JSON_THROW_ON_ERROR);
+
+        return strlen($encoded) <= 8192
+            && $payload['values']['truncated'] === true
+            && $payload['values']['original_bytes'] > 8192;
+    });
 });
 
-it('limits diagnostics at the configured per source rate', function () {
-    $databasePath = tempnam(sys_get_temp_dir(), 'moof-events-');
-    $database = new PDO('sqlite:'.$databasePath);
-    $database->exec(<<<'SQL'
-        CREATE TABLE moof_events (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            event_id TEXT NOT NULL UNIQUE,
-            topic TEXT NOT NULL,
-            event_type TEXT NOT NULL,
-            schema_version INTEGER NOT NULL DEFAULT 1,
-            source TEXT NOT NULL,
-            subject_type TEXT,
-            subject_id TEXT,
-            correlation_id TEXT,
-            causation_id TEXT,
-            payload_json TEXT NOT NULL,
-            severity TEXT NOT NULL DEFAULT 'info',
-            occurred_at INTEGER NOT NULL,
-            recorded_at INTEGER NOT NULL
-        )
-        SQL);
+it('refuses non-loopback endpoints without making a network request', function () {
+    $http = moofWiipFakeAcceptedDiagnostics();
+    $eventId = (new Recorder('https://diagnostics.example.test/api/v1/diagnostics/php', 'php:tests'))->capture(['private']);
 
-    try {
-        $recorder = new Recorder($databasePath, 'php:tests', 1);
-        $firstEventId = $recorder->capture(['first']);
-        $secondEventId = $recorder->capture(['second']);
-        $storedEvents = (int) $database->query("SELECT COUNT(*) FROM moof_events WHERE topic = 'php.debug'")->fetchColumn();
-
-        expect($firstEventId)->toBeString()
-            ->and($secondEventId)->toBeNull()
-            ->and($storedEvents)->toBe(1);
-    } finally {
-        unset($database);
-        unlink($databasePath);
-    }
+    expect($eventId)->toBeNull();
+    $http->assertNothingSent();
 });
 
-it('stores only a compact truncation marker when the payload exceeds its byte limit', function () {
-    $databasePath = tempnam(sys_get_temp_dir(), 'moof-events-');
-    $database = new PDO('sqlite:'.$databasePath);
-    $database->exec(<<<'SQL'
-        CREATE TABLE moof_events (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            event_id TEXT NOT NULL UNIQUE,
-            topic TEXT NOT NULL,
-            event_type TEXT NOT NULL,
-            schema_version INTEGER NOT NULL DEFAULT 1,
-            source TEXT NOT NULL,
-            subject_type TEXT,
-            subject_id TEXT,
-            correlation_id TEXT,
-            causation_id TEXT,
-            payload_json TEXT NOT NULL,
-            severity TEXT NOT NULL DEFAULT 'info',
-            occurred_at INTEGER NOT NULL,
-            recorded_at INTEGER NOT NULL
-        )
-        SQL);
+it('returns null when the Forge intake does not durably accept the event', function () {
+    $http = new HttpFactory;
+    Http::swap($http);
+    $http->fake(HttpFactory::response(['message' => 'unavailable'], 503));
 
-    try {
-        (new Recorder($databasePath, 'php:tests'))->capture(array_fill(0, 40, str_repeat('x', 2048)));
-
-        $payloadJson = $database->query('SELECT payload_json FROM moof_events')->fetchColumn();
-        $payload = json_decode($payloadJson, true, flags: JSON_THROW_ON_ERROR);
-
-        expect(strlen($payloadJson))->toBeLessThanOrEqual(8192)
-            ->and($payload['values']['truncated'])->toBeTrue()
-            ->and($payload['values']['original_bytes'])->toBeGreaterThan(8192);
-    } finally {
-        unset($database);
-        unlink($databasePath);
-    }
+    expect((new Recorder('http://127.0.0.1:3030/api/v1/diagnostics/php', 'php:tests'))->capture(['hello']))->toBeNull();
+    $http->assertSentCount(1);
 });
 
-it('collapses identical diagnostic captures within the same minute', function () {
-    $databasePath = tempnam(sys_get_temp_dir(), 'moof-events-');
-    $database = new PDO('sqlite:'.$databasePath);
-    $database->exec(<<<'SQL'
-        CREATE TABLE moof_events (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            event_id TEXT NOT NULL UNIQUE,
-            topic TEXT NOT NULL,
-            event_type TEXT NOT NULL,
-            schema_version INTEGER NOT NULL DEFAULT 1,
-            source TEXT NOT NULL,
-            subject_type TEXT,
-            subject_id TEXT,
-            correlation_id TEXT,
-            causation_id TEXT,
-            payload_json TEXT NOT NULL,
-            severity TEXT NOT NULL DEFAULT 'info',
-            occurred_at INTEGER NOT NULL,
-            recorded_at INTEGER NOT NULL
-        )
-        SQL);
-
-    try {
-        $recorder = new Recorder($databasePath, 'php:tests');
-        $firstEventId = $recorder->capture(['same diagnostic'], ['file' => 'Example.php', 'line' => 9]);
-        $secondEventId = $recorder->capture(['same diagnostic'], ['file' => 'Example.php', 'line' => 9]);
-        $storedEvents = (int) $database->query("SELECT COUNT(*) FROM moof_events WHERE topic = 'php.debug'")->fetchColumn();
-
-        expect($firstEventId)->toBeString()
-            ->and($secondEventId)->toBe($firstEventId)
-            ->and($storedEvents)->toBe(1);
-    } finally {
-        unset($database);
-        unlink($databasePath);
-    }
-});
-
-it('exposes the configured recorder through the global moof helper', function () {
-    $databasePath = tempnam(sys_get_temp_dir(), 'moof-events-');
-    $database = new PDO('sqlite:'.$databasePath);
-    $database->exec(<<<'SQL'
-        CREATE TABLE moof_events (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            event_id TEXT NOT NULL UNIQUE,
-            topic TEXT NOT NULL,
-            event_type TEXT NOT NULL,
-            schema_version INTEGER NOT NULL DEFAULT 1,
-            source TEXT NOT NULL,
-            subject_type TEXT,
-            subject_id TEXT,
-            correlation_id TEXT,
-            causation_id TEXT,
-            payload_json TEXT NOT NULL,
-            severity TEXT NOT NULL DEFAULT 'info',
-            occurred_at INTEGER NOT NULL,
-            recorded_at INTEGER NOT NULL
-        )
-        SQL);
-
+it('exposes the configured local recorder through the global moof helper', function () {
     $previousContainer = Container::getInstance();
     $application = new Application(sys_get_temp_dir());
     $application->instance('config', new Repository([
         'moof' => [
             'diagnostics' => [
                 'enabled' => true,
-                'database_path' => $databasePath,
+                'endpoint' => 'http://127.0.0.1:3030/api/v1/diagnostics/php',
                 'source' => 'php:helper-test',
-                'rate_limit_per_minute' => 30,
             ],
         ],
     ]));
+    $http = moofWiipFakeAcceptedDiagnostics();
     Container::setInstance($application);
 
     try {
         $eventId = moof('helper capture');
-        $event = $database->query('SELECT event_id, source, payload_json FROM moof_events')->fetch(PDO::FETCH_ASSOC);
-        $payload = json_decode($event['payload_json'], true, flags: JSON_THROW_ON_ERROR);
+        expect($eventId)->toBeString();
 
-        expect($eventId)->toBe($event['event_id'])
-            ->and($event['source'])->toBe('php:helper-test')
-            ->and($payload['values'])->toBe(['helper capture'])
-            ->and($payload['callsite']['file'])->toBe('MoofDiagnosticRecorderTest.php');
+        $http->assertSent(function (HttpRequest $request) use ($eventId): bool {
+            $body = moofWiipDecodeDiagnosticsRequest($request);
+
+            return $body['event_id'] === $eventId
+                && $body['source'] === 'php:helper-test'
+                && $body['payload']['values'] === ['helper capture']
+                && $body['payload']['callsite']['file'] === 'MoofDiagnosticRecorderTest.php';
+        });
     } finally {
         Container::setInstance($previousContainer);
-        unset($database);
-        unlink($databasePath);
     }
 });
 

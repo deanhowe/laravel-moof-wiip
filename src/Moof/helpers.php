@@ -179,9 +179,9 @@ if (! function_exists('moof')) {
                 return null;
             }
 
-            $databasePath = config('moof.diagnostics.database_path');
+            $endpoint = config('moof.diagnostics.endpoint');
 
-            if (! is_string($databasePath) || $databasePath === '') {
+            if (! is_string($endpoint) || $endpoint === '') {
                 return null;
             }
 
@@ -196,9 +196,8 @@ if (! function_exists('moof')) {
             }
 
             return (new Recorder(
-                $databasePath,
+                $endpoint,
                 (string) config('moof.diagnostics.source', 'php:laravel'),
-                max(0, (int) config('moof.diagnostics.rate_limit_per_minute', 30)),
             ))->capture($values, [
                 'file' => is_string($file) ? $file : 'unknown',
                 'line' => isset($callsite['line']) ? (int) $callsite['line'] : null,

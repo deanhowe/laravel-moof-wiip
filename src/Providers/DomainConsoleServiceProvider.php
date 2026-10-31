@@ -164,6 +164,6 @@ class DomainConsoleServiceProvider extends ServiceProvider
 
     private function registerConfig(): void
     {
-        //        $this->mergeConfigFrom(__DIR__ . '/../../../config/blade-mooficons.php', 'blade-mooficons');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/moof.php', 'moof');
     }
 }

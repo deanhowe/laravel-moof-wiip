@@ -3,6 +3,7 @@
 use App\Actions\Moof\CreateBetaUser;
 use App\Models\UnknownUser;
 use App\Models\User;
+use DeanHowe\Laravel\Moof\Diagnostics\Recorder;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -164,5 +165,46 @@ if (!function_exists('devray')) {
         }
 
         return ray(...$args);
+    }
+}
+
+if (! function_exists('moof')) {
+    /**
+     * Capture a redacted, bounded PHP diagnostic in the local Moof Brain.
+     */
+    function moof(mixed ...$values): ?string
+    {
+        try {
+            if (! function_exists('config') || ! (bool) config('moof.diagnostics.enabled', false)) {
+                return null;
+            }
+
+            $databasePath = config('moof.diagnostics.database_path');
+
+            if (! is_string($databasePath) || $databasePath === '') {
+                return null;
+            }
+
+            $callsite = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 1)[0] ?? [];
+            $file = $callsite['file'] ?? 'unknown';
+            $applicationRoot = function_exists('base_path') ? base_path() : null;
+
+            if (is_string($file) && is_string($applicationRoot) && str_starts_with($file, $applicationRoot.DIRECTORY_SEPARATOR)) {
+                $file = substr($file, strlen($applicationRoot) + 1);
+            } elseif (is_string($file)) {
+                $file = basename($file);
+            }
+
+            return (new Recorder(
+                $databasePath,
+                (string) config('moof.diagnostics.source', 'php:laravel'),
+                max(0, (int) config('moof.diagnostics.rate_limit_per_minute', 30)),
+            ))->capture($values, [
+                'file' => is_string($file) ? $file : 'unknown',
+                'line' => isset($callsite['line']) ? (int) $callsite['line'] : null,
+            ]);
+        } catch (Throwable) {
+            return null;
+        }
     }
 }

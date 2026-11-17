@@ -87,7 +87,10 @@ final class MoofMoofInstallCommand extends GeneratorCommand implements PromptsFo
         $this->callSilent('vendor:publish', ['--tag' => 'moof-moof-configs', '--force' => true]);
 
         $this->callSilent('vendor:publish', ['--tag' => 'blade-mooficons', '--force' => true]);
-        $this->callSilent('vendor:publish', ['--tag' => 'blade-heroicons', '--force' => true]);
+        // Heroicons is a suggestion (#214): publish its assets only when the site installed it.
+        if (class_exists(\BladeUI\Heroicons\BladeHeroiconsServiceProvider::class)) {
+            $this->callSilent('vendor:publish', ['--tag' => 'blade-heroicons', '--force' => true]);
+        }
 
         $this->callSilent('vendor:publish', ['--tag' => 'moof-moof-env', '--force' => true]);
 

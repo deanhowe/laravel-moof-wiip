@@ -1,7 +1,7 @@
 {
     "name": "moof/wiip",
     "description": "Moof MOOF \ud83d\udc04 (Massively OTT Opinionated F\u00e5m\u2211w\u2211rk\u0290) enhancer for Laravel \ud83d\udc2e. WiiP (Work in iternal Progress)",
-    "version": "0.0.71",
+    "version": "0.0.72",
     "type": "library",
     "keywords": [
         "subdomains",
@@ -86,7 +86,6 @@
         "socialiteproviders/apple": "^5.6.1",
         "socialiteproviders/dropbox": "^4.2.1",
         "socialiteproviders/github": "^4.1.0",
-        "spatie/data-transfer-object": "^3.9.1",
         "spatie/flysystem-dropbox": "^3.0.2",
         "spatie/image": "^3.8.3",
         "spatie/laravel-data": "^4.15.1 ",
